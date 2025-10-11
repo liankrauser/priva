@@ -397,6 +397,673 @@
                                         <img src="images/blur_7.jpg" alt="" class="rounded">
                                     </div>
                                     <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid":"9027be15bfa7fba7","version":"2025.1.0","r":1,"token":"2b42f34d6100447897d5ffafc0015597","servertiming":{"name":{"cfextpri":true,"cfl4":true,"cfspeedbrain":true,"cfcachestatus":true}}}"="" crossorigin="anonymous"></script>
-</div></div></div></div></div></div></div></div></div></div></div></div></body>
+</div></div></div></div></div></div></div></div></div></div></div></div>
+
+             <!-- ADICIONE ESTE CÓDIGO NO FINAL DO SEU HTML, ANTES DO </body> -->
+
+<!-- CSS do Modal PIX -->
+<style>
+    .modal-pix-pushin {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 999999;
+        align-items: center;
+        justify-content: center;
+        animation: fadeInModal 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .modal-pix-pushin.active {
+        display: flex;
+    }
+
+    .modal-pix-content-pushin {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 450px;
+        width: 90%;
+        margin: 20px;
+        text-align: center;
+        position: relative;
+        animation: slideUpModal 0.4s ease;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    .close-modal-pix-pushin {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #ff4757;
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 24px;
+        font-weight: bold;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        z-index: 10;
+    }
+
+    .close-modal-pix-pushin:hover {
+        background: #ff3838;
+        transform: rotate(90deg);
+    }
+
+    .modal-pix-pushin h2 {
+        color: #2c3e50;
+        font-size: 24px;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    .valor-pix-pushin {
+        color: #ffa500;
+        font-size: 42px;
+        font-weight: bold;
+        margin: 15px 0;
+    }
+
+    .status-pix-pushin {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    .status-pix-pushin.pendente {
+        background: #fff3cd;
+        color: #856404;
+    }
+
+    .status-pix-pushin.pago {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .qr-code-box-pushin {
+        margin: 20px 0;
+        padding: 20px;
+        background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+        border-radius: 15px;
+    }
+
+    .qr-code-box-pushin img {
+        width: 280px;
+        height: 280px;
+        background: white;
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .instrucoes-pix-pushin {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+        text-align: left;
+    }
+
+    .instrucoes-pix-pushin h3 {
+        color: #495057;
+        font-size: 16px;
+        margin-bottom: 12px;
+        font-weight: bold;
+    }
+
+    .instrucoes-pix-pushin ol {
+        margin: 0;
+        padding-left: 20px;
+        color: #6c757d;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .codigo-pix-container-pushin {
+        margin: 20px 0;
+    }
+
+    .codigo-pix-label-pushin {
+        color: #495057;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .codigo-pix-box-pushin {
+        background: #f8f9fa;
+        border: 2px dashed #dee2e6;
+        padding: 15px;
+        border-radius: 10px;
+        word-break: break-all;
+        font-family: 'Courier New', monospace;
+        font-size: 11px;
+        color: #495057;
+        max-height: 120px;
+        overflow-y: auto;
+        text-align: left;
+        line-height: 1.6;
+    }
+
+    .btn-copiar-pix-pushin {
+        background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 15px;
+        transition: all 0.3s;
+        box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+    }
+
+    .btn-copiar-pix-pushin:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(255, 165, 0, 0.6);
+    }
+
+    .btn-copiar-pix-pushin:active {
+        transform: translateY(0);
+    }
+
+    .btn-verificar-pix-pushin {
+        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+        color: white;
+        border: none;
+        padding: 16px 40px;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+        transition: all 0.3s;
+        box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+    }
+
+    .btn-verificar-pix-pushin:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(39, 174, 96, 0.6);
+    }
+
+    .btn-verificar-pix-pushin:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+    .aviso-tempo-pushin {
+        color: #6c757d;
+        font-size: 13px;
+        margin-top: 20px;
+        padding: 12px;
+        background: #e9ecef;
+        border-radius: 8px;
+    }
+
+    .loading-pix-pushin {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border: 5px solid #f3f3f3;
+        border-top: 5px solid #ffa500;
+        border-radius: 50%;
+        animation: spinLoader 1s linear infinite;
+        margin: 30px 0;
+    }
+
+    .toast-message-pushin {
+        position: fixed;
+        top: 30px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-100px);
+        background: #27ae60;
+        color: white;
+        padding: 16px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        z-index: 1000000;
+        box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4);
+        opacity: 0;
+        transition: all 0.4s ease;
+    }
+
+    .toast-message-pushin.show {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+    }
+
+    .toast-message-pushin.error {
+        background: #e74c3c;
+    }
+
+    @keyframes fadeInModal {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideUpModal {
+        from { 
+            transform: translateY(50px); 
+            opacity: 0; 
+        }
+        to { 
+            transform: translateY(0); 
+            opacity: 1; 
+        }
+    }
+
+    @keyframes spinLoader {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+        .modal-pix-content-pushin {
+            padding: 25px 20px;
+            max-width: 95%;
+        }
+
+        .qr-code-box-pushin img {
+            width: 240px;
+            height: 240px;
+        }
+
+        .valor-pix-pushin {
+            font-size: 36px;
+        }
+    }
+</style>
+
+<!-- Modal PIX -->
+<div class="modal-pix-pushin" id="modalPixPushin">
+    <div class="modal-pix-content-pushin">
+        <button class="close-modal-pix-pushin" onclick="fecharModalPixPushin()">×</button>
+        <div id="conteudoPixModalPushin"></div>
+    </div>
+</div>
+
+<div class="toast-message-pushin" id="toastMessagePushin"></div>
+
+<!-- Script de Integração PushinPay -->
+<script>
+    // ⚠️ IMPORTANTE: Substitua pelo seu TOKEN da PushinPay
+    const PUSHINPAY_TOKEN = '49866|p2SlIlHOsm3KzfcqsCD98g31b2K0B5BfneUjTzbW56afb743';
+    
+    // URLs da API
+    const API_BASE_URL_PUSHIN = 'https://api-sandbox.pushinpay.com.br/api/pix'; // Sandbox (testes)
+    // const API_BASE_URL_PUSHIN = 'https://api.pushinpay.com.br/api/pix'; // Produção (descomente quando for usar)
+    
+    const API_URL_PUSHIN = `${API_BASE_URL_PUSHIN}/cashIn`;
+    
+    // URL do webhook (opcional)
+    const WEBHOOK_URL_PUSHIN = ''; // Ex: 'https://seu-site.com/webhook'
+
+    // Variáveis globais
+    let pagamentoAtualPushin = null;
+    let intervaloVerificacaoPushin = null;
+    let ultimaConsultaPushin = 0;
+
+    // Função para criar pagamento PIX
+    async function criarPagamentoPixPushin(valor, descricao) {
+        const modal = document.getElementById('modalPixPushin');
+        const conteudo = document.getElementById('conteudoPixModalPushin');
+        
+        // Abre o modal com loading
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Bloqueia scroll da página
+        
+        conteudo.innerHTML = `
+            <h2>Gerando PIX...</h2>
+            <div class="loading-pix-pushin"></div>
+            <p style="color: #6c757d; margin-top: 20px;">Aguarde alguns segundos</p>
+        `;
+
+        try {
+            // Converte valor para centavos
+            const valorCentavos = Math.round(valor * 100);
+
+            // Prepara o body da requisição
+            const body = {
+                value: valorCentavos
+            };
+
+            // Adiciona webhook se configurado
+            if (WEBHOOK_URL_PUSHIN) {
+                body.webhook_url = WEBHOOK_URL_PUSHIN;
+            }
+
+            // Faz a requisição para a API
+            const response = await fetch(API_URL_PUSHIN, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${PUSHINPAY_TOKEN}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.id) {
+                pagamentoAtualPushin = data;
+                mostrarQRCodePixPushin(data, descricao);
+                iniciarVerificacaoPagamentoPushin(data.id);
+            } else {
+                throw new Error(data.message || 'Erro ao gerar PIX');
+            }
+
+        } catch (error) {
+            console.error('Erro:', error);
+            conteudo.innerHTML = `
+                <h2 style="color: #e74c3c;">❌ Erro ao gerar PIX</h2>
+                <p style="color: #6c757d; margin: 20px 0;">
+                    ${error.message || 'Não foi possível gerar o código PIX. Tente novamente.'}
+                </p>
+                <button class="btn-copiar-pix-pushin" onclick="fecharModalPixPushin()">
+                    Fechar
+                </button>
+            `;
+            mostrarToastPushin('Erro ao gerar PIX. Tente novamente.', 'error');
+        }
+    }
+
+    // Função para mostrar o QR Code
+    function mostrarQRCodePixPushin(dados, descricao) {
+        const conteudo = document.getElementById('conteudoPixModalPushin');
+        const valorReais = (dados.value / 100).toFixed(2).replace('.', ',');
+
+        conteudo.innerHTML = `
+            <h2>💳 Pagamento PIX</h2>
+            <p style="color: #6c757d; margin: 10px 0; font-size: 15px;">${descricao}</p>
+            <div class="valor-pix-pushin">R$ ${valorReais}</div>
+            <span class="status-pix-pushin pendente">⏳ Aguardando Pagamento</span>
+            
+            <div class="qr-code-box-pushin">
+                <img src="${dados.qr_code_base64}" alt="QR Code PIX">
+            </div>
+
+            <div class="instrucoes-pix-pushin">
+                <h3>📱 Como pagar:</h3>
+                <ol>
+                    <li>Abra o app do seu banco</li>
+                    <li>Escolha pagar com PIX</li>
+                    <li>Escaneie o QR Code acima</li>
+                    <li>Confirme o pagamento</li>
+                </ol>
+            </div>
+
+            <div class="codigo-pix-container-pushin">
+                <label class="codigo-pix-label-pushin">Ou copie o código PIX:</label>
+                <div class="codigo-pix-box-pushin" id="codigoPixTextoPushin">${dados.qr_code}</div>
+            </div>
+
+            <button class="btn-copiar-pix-pushin" onclick="copiarCodigoPixPushin()">
+                📋 Copiar Código PIX
+            </button>
+
+            <button class="btn-verificar-pix-pushin" id="btnVerificarManualPushin" onclick="verificarPagamentoManualPushin()">
+                🔄 Já Paguei - Verificar Status
+            </button>
+
+            <div class="aviso-tempo-pushin">
+                ⏱️ O pagamento é confirmado automaticamente após a aprovação
+            </div>
+        `;
+    }
+
+    // Função para copiar o código PIX
+    function copiarCodigoPixPushin() {
+        if (!pagamentoAtualPushin) return;
+
+        navigator.clipboard.writeText(pagamentoAtualPushin.qr_code).then(() => {
+            mostrarToastPushin('✅ Código PIX copiado!');
+        }).catch(() => {
+            // Fallback
+            const textarea = document.createElement('textarea');
+            textarea.value = pagamentoAtualPushin.qr_code;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                mostrarToastPushin('✅ Código PIX copiado!');
+            } catch (err) {
+                mostrarToastPushin('❌ Erro ao copiar', 'error');
+            }
+            
+            document.body.removeChild(textarea);
+        });
+    }
+
+    // Inicia verificação automática
+    function iniciarVerificacaoPagamentoPushin(transactionId) {
+        intervaloVerificacaoPushin = setInterval(async () => {
+            await consultarStatusPagamentoPushin(transactionId);
+        }, 60000); // 60 segundos
+    }
+
+    // Consulta status do pagamento
+    async function consultarStatusPagamentoPushin(transactionId) {
+        const agora = Date.now();
+        
+        if (agora - ultimaConsultaPushin < 60000) {
+            console.log('Aguardando 1 minuto para próxima consulta...');
+            return;
+        }
+
+        try {
+            ultimaConsultaPushin = agora;
+
+            const response = await fetch(`${API_BASE_URL_PUSHIN}/${transactionId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${PUSHINPAY_TOKEN}`,
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.status === 404) {
+                console.log('Transação não encontrada');
+                return;
+            }
+
+            if (response.ok) {
+                const data = await response.json();
+                
+                if (data.status === 'paid') {
+                    pagamentoAprovadoPushin(data);
+                } else if (data.status === 'expired') {
+                    pagamentoExpiradoPushin();
+                } else {
+                    console.log(`Status atual: ${data.status}`);
+                    atualizarStatusModalPushin(data.status);
+                }
+            }
+
+        } catch (error) {
+            console.error('Erro ao consultar pagamento:', error);
+        }
+    }
+
+    // Atualiza status no modal
+    function atualizarStatusModalPushin(status) {
+        const statusElement = document.querySelector('.status-pix-pushin');
+        if (!statusElement) return;
+
+        const statusConfig = {
+            'created': { texto: '⏳ Aguardando Pagamento', classe: 'pendente' },
+            'pending': { texto: '⏳ Processando...', classe: 'pendente' },
+            'paid': { texto: '✅ Pago', classe: 'pago' },
+            'expired': { texto: '❌ Expirado', classe: 'pendente' }
+        };
+
+        const config = statusConfig[status] || statusConfig['created'];
+        statusElement.textContent = config.texto;
+        statusElement.className = `status-pix-pushin ${config.classe}`;
+    }
+
+    // Verificação manual
+    async function verificarPagamentoManualPushin() {
+        if (!pagamentoAtualPushin) return;
+
+        const btn = document.getElementById('btnVerificarManualPushin');
+        if (!btn) return;
+
+        const textoOriginal = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '🔄 Verificando...';
+
+        const agora = Date.now();
+        const tempoDecorrido = (agora - ultimaConsultaPushin) / 1000;
+
+        if (tempoDecorrido < 60 && ultimaConsultaPushin > 0) {
+            const segundosRestantes = Math.ceil(60 - tempoDecorrido);
+            mostrarToastPushin(`⏱️ Aguarde ${segundosRestantes}s`, 'error');
+            btn.disabled = false;
+            btn.innerHTML = textoOriginal;
+            return;
+        }
+
+        await consultarStatusPagamentoPushin(pagamentoAtualPushin.id);
+
+        setTimeout(() => {
+            btn.disabled = false;
+            btn.innerHTML = textoOriginal;
+        }, 2000);
+    }
+
+    // Pagamento aprovado
+    function pagamentoAprovadoPushin(dados) {
+        if (intervaloVerificacaoPushin) {
+            clearInterval(intervaloVerificacaoPushin);
+        }
+
+        const valorReais = dados ? (dados.value / 100).toFixed(2).replace('.', ',') : '0,00';
+        const conteudo = document.getElementById('conteudoPixModalPushin');
+        
+        conteudo.innerHTML = `
+            <div style="padding: 40px 0;">
+                <div style="font-size: 80px; margin-bottom: 20px;">✅</div>
+                <h2 style="color: #27ae60;">Pagamento Confirmado!</h2>
+                <p style="color: #6c757d; margin: 20px 0; font-size: 18px;">
+                    <strong>R$ ${valorReais}</strong>
+                </p>
+                <p style="color: #6c757d; margin: 20px 0; font-size: 16px;">
+                    Seu pagamento foi aprovado com sucesso!<br>
+                    Você receberá um email de confirmação.
+                </p>
+                <button class="btn-copiar-pix-pushin" onclick="fecharModalPixPushin()">
+                    Continuar
+                </button>
+            </div>
+        `;
+
+        mostrarToastPushin('✅ Pagamento aprovado!');
+    }
+
+    // Pagamento expirado
+    function pagamentoExpiradoPushin() {
+        if (intervaloVerificacaoPushin) {
+            clearInterval(intervaloVerificacaoPushin);
+        }
+
+        const conteudo = document.getElementById('conteudoPixModalPushin');
+        conteudo.innerHTML = `
+            <div style="padding: 40px 0;">
+                <div style="font-size: 80px; margin-bottom: 20px;">⏰</div>
+                <h2 style="color: #e74c3c;">Pagamento Expirado</h2>
+                <p style="color: #6c757d; margin: 20px 0;">
+                    O tempo expirou. Gere um novo código PIX.
+                </p>
+                <button class="btn-copiar-pix-pushin" onclick="fecharModalPixPushin()">
+                    Fechar
+                </button>
+            </div>
+        `;
+
+        mostrarToastPushin('⏰ Pagamento expirado', 'error');
+    }
+
+    // Fechar modal
+    function fecharModalPixPushin() {
+        const modal = document.getElementById('modalPixPushin');
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Libera scroll
+        
+        if (intervaloVerificacaoPushin) {
+            clearInterval(intervaloVerificacaoPushin);
+        }
+        
+        pagamentoAtualPushin = null;
+    }
+
+    // Mostrar toast
+    function mostrarToastPushin(mensagem, tipo = 'success') {
+        const toast = document.getElementById('toastMessagePushin');
+        toast.textContent = mensagem;
+        toast.className = `toast-message-pushin ${tipo}`;
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+
+    // Fecha ao clicar fora
+    document.getElementById('modalPixPushin').addEventListener('click', (e) => {
+        if (e.target.id === 'modalPixPushin') {
+            fecharModalPixPushin();
+        }
+    });
+
+    // Fecha com ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && document.getElementById('modalPixPushin').classList.contains('active')) {
+            fecharModalPixPushin();
+        }
+    });
+
+    // ========================================
+    // SUBSTITUI SUAS FUNÇÕES ANTIGAS:
+    // ========================================
+    
+    function redirecionar1() {
+        criarPagamentoPixPushin(9.90, 'Assinar (30 dias)');
+    }
+
+    function redirecionar2() {
+        criarPagamentoPixPushin(11.90, 'Assinar (60 dias)');
+    }
+
+    function redirecionar3() {
+        criarPagamentoPixPushin(14.90, 'Assinar (90 dias)');
+    }
+</script>
+			 
+		 </body>
 <!-- Mirrored from digitalwebofc.shop/kamilinhapriv/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Mar 2025 13:03:03 GMT -->
 </html>
