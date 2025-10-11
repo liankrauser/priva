@@ -416,6 +416,7 @@
         justify-content: center;
         animation: fadeInModal 0.3s ease;
         overflow-y: auto;
+        padding: 10px;
     }
 
     .modal-pix-pushin.active {
@@ -424,11 +425,12 @@
 
     .modal-pix-content-pushin {
         background: white;
-        padding: 30px;
-        border-radius: 20px;
-        max-width: 450px;
-        width: 90%;
-        margin: 20px;
+        padding: 20px;
+        border-radius: 15px;
+        max-width: 380px;
+        width: 95%;
+        max-height: 95vh;
+        overflow-y: auto;
         text-align: center;
         position: relative;
         animation: slideUpModal 0.4s ease;
@@ -437,16 +439,16 @@
 
     .close-modal-pix-pushin {
         position: absolute;
-        top: 15px;
-        right: 15px;
+        top: 10px;
+        right: 10px;
         background: #ff4757;
         color: white;
         border: none;
-        width: 40px;
-        height: 40px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
         cursor: pointer;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
         transition: all 0.3s;
         display: flex;
@@ -463,25 +465,25 @@
 
     .modal-pix-pushin h2 {
         color: #2c3e50;
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-size: 20px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
 
     .valor-pix-pushin {
         color: #ffa500;
-        font-size: 42px;
+        font-size: 32px;
         font-weight: bold;
-        margin: 15px 0;
+        margin: 10px 0;
     }
 
     .status-pix-pushin {
         display: inline-block;
-        padding: 8px 20px;
+        padding: 6px 16px;
         border-radius: 20px;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .status-pix-pushin.pendente {
@@ -495,89 +497,89 @@
     }
 
     .qr-code-box-pushin {
-        margin: 20px 0;
-        padding: 20px;
+        margin: 15px 0;
+        padding: 15px;
         background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
-        border-radius: 15px;
+        border-radius: 12px;
     }
 
     .qr-code-box-pushin img {
-        width: 280px;
-        height: 280px;
+        width: 200px;
+        height: 200px;
         background: white;
-        padding: 15px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .instrucoes-pix-pushin {
         background: #f8f9fa;
-        padding: 20px;
-        border-radius: 10px;
-        margin: 20px 0;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 12px 0;
         text-align: left;
     }
 
     .instrucoes-pix-pushin h3 {
         color: #495057;
-        font-size: 16px;
-        margin-bottom: 12px;
+        font-size: 14px;
+        margin-bottom: 8px;
         font-weight: bold;
     }
 
     .instrucoes-pix-pushin ol {
         margin: 0;
-        padding-left: 20px;
+        padding-left: 18px;
         color: #6c757d;
-        font-size: 14px;
-        line-height: 1.8;
+        font-size: 12px;
+        line-height: 1.6;
     }
 
     .codigo-pix-container-pushin {
-        margin: 20px 0;
+        margin: 12px 0;
     }
 
     .codigo-pix-label-pushin {
         color: #495057;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         display: block;
     }
 
     .codigo-pix-box-pushin {
         background: #f8f9fa;
         border: 2px dashed #dee2e6;
-        padding: 15px;
-        border-radius: 10px;
+        padding: 10px;
+        border-radius: 8px;
         word-break: break-all;
         font-family: 'Courier New', monospace;
-        font-size: 11px;
+        font-size: 10px;
         color: #495057;
-        max-height: 120px;
+        max-height: 80px;
         overflow-y: auto;
         text-align: left;
-        line-height: 1.6;
+        line-height: 1.4;
     }
 
     .btn-copiar-pix-pushin {
         background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
         color: white;
         border: none;
-        padding: 16px 40px;
+        padding: 12px 30px;
         border-radius: 50px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
         cursor: pointer;
         width: 100%;
-        margin-top: 15px;
+        margin-top: 10px;
         transition: all 0.3s;
-        box-shadow: 0 8px 20px rgba(255, 165, 0, 0.4);
+        box-shadow: 0 6px 15px rgba(255, 165, 0, 0.4);
     }
 
     .btn-copiar-pix-pushin:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(255, 165, 0, 0.6);
+        box-shadow: 0 10px 25px rgba(255, 165, 0, 0.6);
     }
 
     .btn-copiar-pix-pushin:active {
@@ -588,20 +590,20 @@
         background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
         color: white;
         border: none;
-        padding: 16px 40px;
+        padding: 12px 30px;
         border-radius: 50px;
-        font-size: 16px;
+        font-size: 14px;
         font-weight: bold;
         cursor: pointer;
         width: 100%;
-        margin-top: 10px;
+        margin-top: 8px;
         transition: all 0.3s;
-        box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+        box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
     }
 
     .btn-verificar-pix-pushin:hover {
         transform: translateY(-2px);
-        box-shadow: 0 12px 30px rgba(39, 174, 96, 0.6);
+        box-shadow: 0 10px 25px rgba(39, 174, 96, 0.6);
     }
 
     .btn-verificar-pix-pushin:disabled {
@@ -612,36 +614,37 @@
 
     .aviso-tempo-pushin {
         color: #6c757d;
-        font-size: 13px;
-        margin-top: 20px;
-        padding: 12px;
+        font-size: 11px;
+        margin-top: 12px;
+        padding: 10px;
         background: #e9ecef;
-        border-radius: 8px;
+        border-radius: 6px;
     }
 
     .loading-pix-pushin {
         display: inline-block;
-        width: 50px;
-        height: 50px;
-        border: 5px solid #f3f3f3;
-        border-top: 5px solid #ffa500;
+        width: 40px;
+        height: 40px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #ffa500;
         border-radius: 50%;
         animation: spinLoader 1s linear infinite;
-        margin: 30px 0;
+        margin: 20px 0;
     }
 
     .toast-message-pushin {
         position: fixed;
-        top: 30px;
+        top: 20px;
         left: 50%;
         transform: translateX(-50%) translateY(-100px);
         background: #27ae60;
         color: white;
-        padding: 16px 30px;
+        padding: 12px 24px;
         border-radius: 50px;
         font-weight: 600;
+        font-size: 14px;
         z-index: 1000000;
-        box-shadow: 0 10px 30px rgba(39, 174, 96, 0.4);
+        box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
         opacity: 0;
         transition: all 0.4s ease;
     }
@@ -662,7 +665,7 @@
 
     @keyframes slideUpModal {
         from { 
-            transform: translateY(50px); 
+            transform: translateY(30px); 
             opacity: 0; 
         }
         to { 
@@ -676,21 +679,78 @@
         100% { transform: rotate(360deg); }
     }
 
-    /* Responsivo */
-    @media (max-width: 768px) {
+    /* Responsivo Mobile */
+    @media (max-width: 480px) {
         .modal-pix-content-pushin {
-            padding: 25px 20px;
+            padding: 15px;
             max-width: 95%;
+            border-radius: 12px;
         }
 
         .qr-code-box-pushin img {
-            width: 240px;
-            height: 240px;
+            width: 180px;
+            height: 180px;
+            padding: 8px;
         }
 
         .valor-pix-pushin {
-            font-size: 36px;
+            font-size: 28px;
         }
+
+        .modal-pix-pushin h2 {
+            font-size: 18px;
+        }
+
+        .instrucoes-pix-pushin {
+            padding: 10px;
+        }
+
+        .instrucoes-pix-pushin ol {
+            font-size: 11px;
+        }
+
+        .codigo-pix-box-pushin {
+            font-size: 9px;
+            max-height: 70px;
+        }
+
+        .btn-copiar-pix-pushin,
+        .btn-verificar-pix-pushin {
+            padding: 10px 24px;
+            font-size: 13px;
+        }
+    }
+
+    /* Scrollbar customizada para o modal */
+    .modal-pix-content-pushin::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .modal-pix-content-pushin::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+
+    .modal-pix-content-pushin::-webkit-scrollbar-thumb {
+        background: #ffa500;
+        border-radius: 10px;
+    }
+
+    .modal-pix-content-pushin::-webkit-scrollbar-thumb:hover {
+        background: #ff8c00;
+    }
+
+    .codigo-pix-box-pushin::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .codigo-pix-box-pushin::-webkit-scrollbar-track {
+        background: #e9ecef;
+    }
+
+    .codigo-pix-box-pushin::-webkit-scrollbar-thumb {
+        background: #dee2e6;
+        border-radius: 4px;
     }
 </style>
 
