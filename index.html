@@ -1017,33 +1017,83 @@
     }
 
     // Pagamento aprovado
-    function pagamentoAprovadoPushin(dados) {
-        if (intervaloVerificacaoPushin) {
-            clearInterval(intervaloVerificacaoPushin);
-        }
-
-        const valorReais = dados ? (dados.value / 100).toFixed(2).replace('.', ',') : '0,00';
-        const conteudo = document.getElementById('conteudoPixModalPushin');
-        
-        conteudo.innerHTML = `
-            <div style="padding: 40px 0;">
-                <div style="font-size: 80px; margin-bottom: 20px;">✅</div>
-                <h2 style="color: #27ae60;">Pagamento Confirmado!</h2>
-                <p style="color: #6c757d; margin: 20px 0; font-size: 18px;">
-                    <strong>R$ ${valorReais}</strong>
-                </p>
-                <p style="color: #6c757d; margin: 20px 0; font-size: 16px;">
-                    Seu pagamento foi aprovado com sucesso!<br>
-                    Você receberá um email de confirmação.
-                </p>
-                <button class="btn-copiar-pix-pushin" onclick="fecharModalPixPushin()">
-                    Continuar
-                </button>
-            </div>
-        `;
-
-        mostrarToastPushin('✅ Pagamento aprovado!');
+// Pagamento aprovado - ATUALIZADO COM LINK DO DRIVE
+function pagamentoAprovadoPushin(dados) {
+    if (intervaloVerificacaoPushin) {
+        clearInterval(intervaloVerificacaoPushin);
     }
+
+    const valorReais = dados ? (dados.value / 100).toFixed(2).replace('.', ',') : '0,00';
+    const conteudo = document.getElementById('conteudoPixModalPushin');
+    
+    // Link do Google Drive
+    const linkDrive = 'https://drive.google.com/drive/folders/1M5toLuYb9JKXOnh3cz_zodyJwif57lLS';
+    
+    conteudo.innerHTML = `
+        <div style="padding: 30px 0;">
+            <div style="font-size: 70px; margin-bottom: 15px;">✅</div>
+            <h2 style="color: #27ae60; margin-bottom: 10px;">Pagamento Confirmado!</h2>
+            <p style="color: #6c757d; margin: 15px 0; font-size: 16px;">
+                <strong>R$ ${valorReais}</strong>
+            </p>
+            <p style="color: #6c757d; margin: 15px 0; font-size: 14px;">
+                Seu pagamento foi aprovado com sucesso!<br>
+                Clique no botão abaixo para acessar o conteúdo exclusivo.
+            </p>
+
+            <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                <p style="color: #2e7d32; font-size: 13px; margin: 0;">
+                    🔒 <strong>Acesso Liberado!</strong><br>
+                    Seu conteúdo exclusivo está disponível.
+                </p>
+            </div>
+
+            <a href="${linkDrive}" target="_blank" style="text-decoration: none;">
+                <button class="btn-copiar-pix-pushin" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);">
+                    🎁 Acessar Conteúdo Agora
+                </button>
+            </a>
+
+            <button class="btn-verificar-pix-pushin" onclick="copiarLinkDrive('${linkDrive}')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                📋 Copiar Link
+            </button>
+
+            <button class="btn-verificar-pix-pushin" onclick="fecharModalPixPushin()" style="background: #95a5a6; margin-top: 10px;">
+                Fechar
+            </button>
+
+            <div class="aviso-tempo-pushin" style="margin-top: 15px;">
+                💡 Salve o link em seus favoritos para acessar quando quiser!
+            </div>
+        </div>
+    `;
+
+    mostrarToastPushin('✅ Pagamento aprovado! Acesse seu conteúdo.');
+}
+
+// Função para copiar o link do Drive
+function copiarLinkDrive(link) {
+    navigator.clipboard.writeText(link).then(() => {
+        mostrarToastPushin('✅ Link copiado! Cole no navegador para acessar.');
+    }).catch(() => {
+        // Fallback para navegadores antigos
+        const textarea = document.createElement('textarea');
+        textarea.value = link;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        
+        try {
+            document.execCommand('copy');
+            mostrarToastPushin('✅ Link copiado!');
+        } catch (err) {
+            mostrarToastPushin('❌ Erro ao copiar', 'error');
+        }
+        
+        document.body.removeChild(textarea);
+    });
+}
 
     // Pagamento expirado
     function pagamentoExpiradoPushin() {
