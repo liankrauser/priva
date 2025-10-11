@@ -854,10 +854,10 @@
         const valorReais = (dados.value / 100).toFixed(2).replace('.', ',');
 
         conteudo.innerHTML = `
-            <h2>💳 Pagamento PIX</h2>
+            <h2>Pagamento PIX</h2>
             <p style="color: #6c757d; margin: 10px 0; font-size: 15px;">${descricao}</p>
             <div class="valor-pix-pushin">R$ ${valorReais}</div>
-            <span class="status-pix-pushin pendente">⏳ Aguardando Pagamento</span>
+            <span class="status-pix-pushin pendente">Aguardando Pagamento</span>
             
             <div class="qr-code-box-pushin">
                 <img src="${dados.qr_code_base64}" alt="QR Code PIX">
@@ -879,11 +879,11 @@
             </div>
 
             <button class="btn-copiar-pix-pushin" onclick="copiarCodigoPixPushin()">
-                📋 Copiar Código PIX
+                 Copiar Código PIX
             </button>
 
             <button class="btn-verificar-pix-pushin" id="btnVerificarManualPushin" onclick="verificarPagamentoManualPushin()">
-                🔄 Já Paguei - Verificar Status
+                Já Paguei - Verificar Status
             </button>
 
             <div class="aviso-tempo-pushin">
