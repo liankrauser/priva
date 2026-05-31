@@ -900,7 +900,7 @@
             }
 
             // 2. Se falhar devido a CORS ou rede, tenta via CORS Proxy público
-            const corsProxy = 'https://corsproxy.io/?';
+            const corsProxy = 'https://corsproxy.io/?url=';
             for (const domain of domains) {
                 const proxiedUrl = `${corsProxy}${encodeURIComponent(domain + urlPath)}`;
                 try {
