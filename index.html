@@ -1180,9 +1180,6 @@
             const valorReais = dados ? dados.amount.toFixed(2).replace('.', ',') : '0,00';
             const conteudo = document.getElementById('conteudoPixModalSyncpay');
 
-            // Link do Google Drive liberado
-            const linkDrive = 'https://drive.google.com/drive/folders/1M5toLuYb9JKXOnh3cz_zodyJwif57lLS';
-
             conteudo.innerHTML = `
             <div style="padding: 30px 0;">
                 <div style="font-size: 70px; margin-bottom: 15px;">✅</div>
@@ -1190,49 +1187,42 @@
                 <p style="color: #6c757d; margin: 15px 0; font-size: 16px;">
                     <strong>R$ ${valorReais}</strong>
                 </p>
-                <p style="color: #6c757d; margin: 15px 0; font-size: 14px;">
-                    Seu pagamento foi aprovado com sucesso!<br>
-                    Clique no botão abaixo para acessar o conteúdo exclusivo.
-                </p>
-
-                <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 20px 0;">
-                    <p style="color: #2e7d32; font-size: 13px; margin: 0;">
-                        🔒 <strong>Acesso Liberado!</strong><br>
-                        Seu conteúdo exclusivo está disponível.
+                
+                <div style="background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0; text-align: center; border: 1px solid #c8e6c9;">
+                    <p style="color: #2e7d32; font-size: 15px; margin: 0; line-height: 1.6;">
+                        ✉️ <strong>Acesso em Processamento</strong><br><br>
+                        O link de acesso ao conteúdo exclusivo será enviado para o seu <strong>e-mail de compra em até 2 horas</strong>.
                     </p>
                 </div>
 
-                <a href="${linkDrive}" target="_blank" style="text-decoration: none;">
-                    <button class="btn-copiar-pix-syncpay" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);">
-                        🎁 Acessar Conteúdo Agora
-                    </button>
-                </a>
+                <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin: 15px 0; border: 1px solid #ffeeba;">
+                    <p style="color: #856404; font-size: 13px; margin: 0; line-height: 1.5; text-align: left;">
+                        ⚠️ <strong>Precisa de Ajuda?</strong><br>
+                        Caso não receba o e-mail após as 2 horas, entre em contato através do e-mail de suporte:<br>
+                        <a href="mailto:saramuniz1223@gmail.com" style="color: #664d03; font-weight: bold; text-decoration: underline;">saramuniz1223@gmail.com</a>
+                    </p>
+                </div>
 
-                <button class="btn-verificar-pix-syncpay" onclick="copiarLinkDriveSyncpay('${linkDrive}')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                    📋 Copiar Link
+                <button class="btn-copiar-pix-syncpay" onclick="copiarEmailSuporte('saramuniz1223@gmail.com')" style="background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);">
+                    📋 Copiar E-mail de Suporte
                 </button>
 
                 <button class="btn-verificar-pix-syncpay" onclick="fecharModalPixSyncpay()" style="background: #95a5a6; margin-top: 10px;">
                     Fechar
                 </button>
-
-                <div class="aviso-tempo-syncpay" style="margin-top: 15px;">
-                    💡 Salve o link em seus favoritos para acessar quando quiser!
-                </div>
             </div>
         `;
 
-            mostrarToastSyncpay('✅ Pagamento aprovado! Acesse seu conteúdo.');
+            mostrarToastSyncpay('✅ Pagamento aprovado com sucesso!');
         }
 
-        // Função para copiar o link do Drive
-        function copiarLinkDriveSyncpay(link) {
-            navigator.clipboard.writeText(link).then(() => {
-                mostrarToastSyncpay('✅ Link copiado! Cole no navegador para acessar.');
+        // Função para copiar o e-mail de suporte
+        function copiarEmailSuporte(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                mostrarToastSyncpay('✅ E-mail de suporte copiado!');
             }).catch(() => {
-                // Fallback para navegadores antigos
                 const textarea = document.createElement('textarea');
-                textarea.value = link;
+                textarea.value = email;
                 textarea.style.position = 'fixed';
                 textarea.style.opacity = '0';
                 document.body.appendChild(textarea);
@@ -1240,7 +1230,7 @@
 
                 try {
                     document.execCommand('copy');
-                    mostrarToastSyncpay('✅ Link copiado!');
+                    mostrarToastSyncpay('✅ E-mail de suporte copiado!');
                 } catch (err) {
                     mostrarToastSyncpay('❌ Erro ao copiar', 'error');
                 }
