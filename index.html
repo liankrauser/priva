@@ -283,9 +283,8 @@
                         <div style="left:-4px;top:-4px;">
                             <div>
                                 <figure class="d-inline-block bg-img-profile live-indicator">
-                                    <img class="avatar rounded-circle"
-                                        src="images/avatar.jpg"
-                                        id="FotoPerfil" style="max-width:96px;min-height:96px;min-width:96px;">
+                                    <img class="avatar rounded-circle" src="images/avatar.jpg" id="FotoPerfil"
+                                        style="max-width:96px;min-height:96px;min-width:96px;">
                                     <div class="border-profile"></div>
                                     <span class="live-badge">AO VIVO</span>
                                 </figure>
@@ -868,8 +867,8 @@
     <!-- Script de Integração SyncPay -->
     <script>
         // ⚠️ IMPORTANTE: Configure suas credenciais da SyncPay aqui
-        const SYNCPAY_CLIENT_ID = '2b29d858-b24d-49cf-ae94-4871d8014a7f';
-        const SYNCPAY_CLIENT_SECRET = '0e8961a5-dc6b-4c89-aa28-5244546b0a7d';
+        const SYNCPAY_CLIENT_ID = '331891e9-6e23-4af3-9d50-44235cc7e55e';
+        const SYNCPAY_CLIENT_SECRET = '232d4689-e85c-41b1-8b15-928424a62b81';
 
         // URL do webhook (opcional)
         const WEBHOOK_URL_SYNCPAY = '';
@@ -885,7 +884,7 @@
                 'https://api.syncpay.com.br',
                 'https://api.syncpayments.com.br'
             ];
-            
+
             // 1. Tentar chamadas diretas aos domínios
             for (const domain of domains) {
                 const fullUrl = `${domain}${urlPath}`;
@@ -899,7 +898,7 @@
                     console.warn(`Falha na requisição direta para ${fullUrl}:`, err);
                 }
             }
-            
+
             // 2. Se falhar devido a CORS ou rede, tenta via CORS Proxy público
             const corsProxy = 'https://corsproxy.io/?';
             for (const domain of domains) {
@@ -914,7 +913,7 @@
                     console.warn(`Falha via CORS Proxy para ${proxiedUrl}:`, err);
                 }
             }
-            
+
             throw new TypeError('Falha ao conectar com a SyncPay (CORS ou erro de rede).');
         }
 
