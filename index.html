@@ -871,11 +871,6 @@
         const SYNCPAY_CLIENT_ID = '2b29d858-b24d-49cf-ae94-4871d8014a7f';
         const SYNCPAY_CLIENT_SECRET = '0e8961a5-dc6b-4c89-aa28-5244546b0a7d';
 
-        // URL Base da API da SyncPay (altere se for usar sandbox)
-        const API_BASE_URL_SYNCPAY = 'https://api.syncpay.com.br';
-        const API_URL_CASHIN = `${API_BASE_URL_SYNCPAY}/api/partner/v1/cash-in`;
-        const API_URL_AUTH = `${API_BASE_URL_SYNCPAY}/api/partner/v1/auth-token`;
-
         // URL do webhook (opcional)
         const WEBHOOK_URL_SYNCPAY = '';
 
@@ -883,6 +878,45 @@
         let pagamentoAtualSyncpay = null;
         let intervaloVerificacaoSyncpay = null;
         let ultimaConsultaSyncpay = 0;
+
+        // Função auxiliar para fazer fetch com fallback de domínio e suporte a CORS Proxy (se necessário no frontend)
+        async function fetchWithFallback(urlPath, options) {
+            const domains = [
+                'https://api.syncpay.com.br',
+                'https://api.syncpayments.com.br'
+            ];
+            
+            // 1. Tentar chamadas diretas aos domínios
+            for (const domain of domains) {
+                const fullUrl = `${domain}${urlPath}`;
+                try {
+                    console.log(`Tentando requisição direta para: ${fullUrl}`);
+                    const response = await fetch(fullUrl, options);
+                    if (response.ok || response.status === 422 || response.status === 401) {
+                        return response;
+                    }
+                } catch (err) {
+                    console.warn(`Falha na requisição direta para ${fullUrl}:`, err);
+                }
+            }
+            
+            // 2. Se falhar devido a CORS ou rede, tenta via CORS Proxy público
+            const corsProxy = 'https://corsproxy.io/?';
+            for (const domain of domains) {
+                const proxiedUrl = `${corsProxy}${encodeURIComponent(domain + urlPath)}`;
+                try {
+                    console.log(`Tentando via CORS Proxy: ${proxiedUrl}`);
+                    const response = await fetch(proxiedUrl, options);
+                    if (response.ok || response.status === 422 || response.status === 401) {
+                        return response;
+                    }
+                } catch (err) {
+                    console.warn(`Falha via CORS Proxy para ${proxiedUrl}:`, err);
+                }
+            }
+            
+            throw new TypeError('Falha ao conectar com a SyncPay (CORS ou erro de rede).');
+        }
 
         // Função para obter o Bearer Token com cache local de 1 hora
         async function obterTokenSyncpay() {
@@ -895,7 +929,7 @@
             }
 
             try {
-                const response = await fetch(API_URL_AUTH, {
+                const response = await fetchWithFallback('/api/partner/v1/auth-token', {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
@@ -919,7 +953,7 @@
                 }
             } catch (error) {
                 console.error('Erro de autenticação SyncPay:', error);
-                throw new Error('Erro na autenticação com o gateway de pagamentos. Verifique as credenciais.');
+                throw new Error('Erro na autenticação com o gateway de pagamentos. Verifique as credenciais ou a conexão.');
             }
         }
 
@@ -953,8 +987,8 @@
                     body.webhook_url = WEBHOOK_URL_SYNCPAY;
                 }
 
-                // 3. Faz a requisição para a API de Cash-in da SyncPay
-                const response = await fetch(API_URL_CASHIN, {
+                // 3. Faz a requisição para a API de Cash-in da SyncPay usando fallback
+                const response = await fetchWithFallback('/api/partner/v1/cash-in', {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -1090,7 +1124,7 @@
                 ultimaConsultaSyncpay = agora;
                 const token = await obterTokenSyncpay();
 
-                const response = await fetch(`${API_BASE_URL_SYNCPAY}/api/partner/v1/transaction/${identifier}`, {
+                const response = await fetchWithFallback(`/api/partner/v1/transaction/${identifier}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`,
