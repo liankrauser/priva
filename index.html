@@ -900,17 +900,22 @@
             }
 
             // 2. Se falhar devido a CORS ou rede, tenta via CORS Proxy público
-            const corsProxy = 'https://corsproxy.io/?url=';
+            const proxies = [
+                'https://corsproxy.io/?url=',
+                'https://api.cors.lol/?url='
+            ];
             for (const domain of domains) {
-                const proxiedUrl = `${corsProxy}${encodeURIComponent(domain + urlPath)}`;
-                try {
-                    console.log(`Tentando via CORS Proxy: ${proxiedUrl}`);
-                    const response = await fetch(proxiedUrl, options);
-                    if (response.ok || response.status === 422 || response.status === 401) {
-                        return response;
+                for (const proxy of proxies) {
+                    const proxiedUrl = `${proxy}${encodeURIComponent(domain + urlPath)}`;
+                    try {
+                        console.log(`Tentando via CORS Proxy (${proxy}): ${proxiedUrl}`);
+                        const response = await fetch(proxiedUrl, options);
+                        if (response.ok || response.status === 422 || response.status === 401) {
+                            return response;
+                        }
+                    } catch (err) {
+                        console.warn(`Falha via CORS Proxy (${proxy}) para ${proxiedUrl}:`, err);
                     }
-                } catch (err) {
-                    console.warn(`Falha via CORS Proxy para ${proxiedUrl}:`, err);
                 }
             }
 
