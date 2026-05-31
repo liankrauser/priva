@@ -866,109 +866,24 @@
 
     <!-- Script de Integração SyncPay -->
     <script>
-        // ⚠️ IMPORTANTE: Configure suas credenciais da SyncPay aqui
-        const SYNCPAY_CLIENT_ID = '331891e9-6e23-4af3-9d50-44235cc7e55e';
-        const SYNCPAY_CLIENT_SECRET = '232d4689-e85c-41b1-8b15-928424a62b81';
-
-        // URL do webhook (opcional)
-        const WEBHOOK_URL_SYNCPAY = '';
+        // URL da API backend (usa a Serverless Function do próprio site na Vercel)
+        // Se rodar localmente (file:// ou localhost), aponta para o domínio de produção do projeto
+        const API_ENDPOINT_SYNCPAY = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'
+            ? 'https://priva-evggrq8c7-lians-projects-b54c922f.vercel.app/api/syncpay'
+            : '/api/syncpay';
 
         // Variáveis globais
         let pagamentoAtualSyncpay = null;
         let intervaloVerificacaoSyncpay = null;
         let ultimaConsultaSyncpay = 0;
 
-        // Função auxiliar para fazer fetch com fallback de domínio e suporte a CORS Proxy (se necessário no frontend)
-        async function fetchWithFallback(urlPath, options) {
-            const domains = [
-                'https://api.syncpay.com.br',
-                'https://api.syncpayments.com.br'
-            ];
-
-            // 1. Tentar chamadas diretas aos domínios
-            for (const domain of domains) {
-                const fullUrl = `${domain}${urlPath}`;
-                try {
-                    console.log(`Tentando requisição direta para: ${fullUrl}`);
-                    const response = await fetch(fullUrl, options);
-                    if (response.ok || response.status === 422 || response.status === 401) {
-                        return response;
-                    }
-                } catch (err) {
-                    console.warn(`Falha na requisição direta para ${fullUrl}:`, err);
-                }
-            }
-
-            // 2. Se falhar devido a CORS ou rede, tenta via CORS Proxy público
-            const proxies = [
-                'https://corsproxy.io/?url=',
-                'https://api.cors.lol/?url='
-            ];
-            for (const domain of domains) {
-                for (const proxy of proxies) {
-                    const proxiedUrl = `${proxy}${encodeURIComponent(domain + urlPath)}`;
-                    try {
-                        console.log(`Tentando via CORS Proxy (${proxy}): ${proxiedUrl}`);
-                        const response = await fetch(proxiedUrl, options);
-                        if (response.ok || response.status === 422 || response.status === 401) {
-                            return response;
-                        }
-                    } catch (err) {
-                        console.warn(`Falha via CORS Proxy (${proxy}) para ${proxiedUrl}:`, err);
-                    }
-                }
-            }
-
-            throw new TypeError('Falha ao conectar com a SyncPay (CORS ou erro de rede).');
-        }
-
-        // Função para obter o Bearer Token com cache local de 1 hora
-        async function obterTokenSyncpay() {
-            const tokenCached = localStorage.getItem('syncpay_token');
-            const tokenExpires = localStorage.getItem('syncpay_token_expires');
-
-            // Se o token existe e ainda é válido (com margem de segurança de 5 minutos)
-            if (tokenCached && tokenExpires && Date.now() < (parseInt(tokenExpires) - 300000)) {
-                return tokenCached;
-            }
-
-            try {
-                const response = await fetchWithFallback('/api/partner/v1/auth-token', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        client_id: SYNCPAY_CLIENT_ID,
-                        client_secret: SYNCPAY_CLIENT_SECRET
-                    })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.access_token) {
-                    const expiresAt = Date.now() + (data.expires_in * 1000);
-                    localStorage.setItem('syncpay_token', data.access_token);
-                    localStorage.setItem('syncpay_token_expires', expiresAt.toString());
-                    return data.access_token;
-                } else {
-                    throw new Error(data.message || 'Falha ao autenticar na SyncPay');
-                }
-            } catch (error) {
-                console.error('Erro de autenticação SyncPay:', error);
-                throw new Error('Erro na autenticação com o gateway de pagamentos. Verifique as credenciais ou a conexão.');
-            }
-        }
-
-        // Função para criar pagamento PIX
         async function criarPagamentoPixSyncpay(valor, descricao) {
             const modal = document.getElementById('modalPixSyncpay');
             const conteudo = document.getElementById('conteudoPixModalSyncpay');
 
             // Abre o modal com loading
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Bloqueia scroll da página
+            document.body.style.overflow = 'hidden';
 
             conteudo.innerHTML = `
             <h2>Gerando PIX...</h2>
@@ -977,29 +892,16 @@
         `;
 
             try {
-                // 1. Obtém o Token de Acesso
-                const token = await obterTokenSyncpay();
-
-                // 2. Prepara o body da requisição
-                const body = {
-                    amount: valor,
-                    description: descricao
-                };
-
-                // Adiciona webhook se configurado
-                if (WEBHOOK_URL_SYNCPAY) {
-                    body.webhook_url = WEBHOOK_URL_SYNCPAY;
-                }
-
-                // 3. Faz a requisição para a API de Cash-in da SyncPay usando fallback
-                const response = await fetchWithFallback('/api/partner/v1/cash-in', {
+                const response = await fetch(API_ENDPOINT_SYNCPAY, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
                         'Accept': 'application/json',
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(body)
+                    body: JSON.stringify({
+                        amount: valor,
+                        description: descricao
+                    })
                 });
 
                 const data = await response.json();
@@ -1013,7 +915,7 @@
                     mostrarQRCodePixSyncpay(pagamentoAtualSyncpay, descricao);
                     iniciarVerificacaoPagamentoSyncpay(data.identifier);
                 } else {
-                    throw new Error(data.message || 'Erro ao gerar PIX');
+                    throw new Error(data.message || data.error || 'Erro ao gerar PIX');
                 }
 
             } catch (error) {
@@ -1126,16 +1028,7 @@
 
             try {
                 ultimaConsultaSyncpay = agora;
-                const token = await obterTokenSyncpay();
-
-                const response = await fetchWithFallback(`/api/partner/v1/transaction/${identifier}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                });
+                const response = await fetch(`${API_ENDPOINT_SYNCPAY}?id=${identifier}`);
 
                 if (response.status === 404) {
                     console.log('Transação não encontrada');
